@@ -1,0 +1,25 @@
+.main {
+    display: flex;
+    gap: 200px;
+}
+
+.Box {
+    border: 2px solid;
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    opacity: 0.6;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.Box h1 {
+    font-weight: bold;
+    color: ghostwhite;
+}
+
+.Box:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.5); 
+}

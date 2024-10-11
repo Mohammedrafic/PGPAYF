@@ -1,0 +1,55 @@
+.cont-main {
+    border: 2px solid;
+    width: 1180px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: white;
+    opacity: 0.6;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.DetailHeader {
+    display: flex;
+    gap: 10px;
+}
+
+.circle {
+    border: 2px solid;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+    margin-left: 10px;
+}
+.title-header {
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.main-body {
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+}

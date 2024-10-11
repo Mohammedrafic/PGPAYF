@@ -1,0 +1,33 @@
+.main-cnt {
+    width: 97%;
+}
+
+.batch-1 {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.fields{
+    width: 100%;
+    max-width: 40%;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+button.sub-btn {
+    width: 100%;
+    max-width: 10%;
+    padding: 6px;
+    border: 0;
+    border-radius: 20px;  
+    cursor: pointer;  
+}
+
+.sub-btn:hover{
+    background-color: var(--color-accent);
+}

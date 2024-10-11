@@ -1,0 +1,32 @@
+<div class="container-login100">
+    <div class="main">
+        <div class="header">
+            <div class="DetailHeader" *ngFor="let data of DetailsHeader; let i = index">
+                <div class="title-header">
+                    <div class="circle" [ngStyle]="{ 'background-color': data.color }">
+                        <h4>{{data.value}}</h4>
+                    </div>
+                    <div class="title">
+                        <h4>{{data.title}}</h4>
+                    </div>
+                </div>
+                <div class="arrow" *ngIf="i < DetailsHeader.length - 1">
+                    <img width="40px" height="40px" src="assets/images/right-arrow.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+        <div class="cont-main">
+            <div class="main-body" *ngIf="MainDetails == 1">
+                <app-personal-details (NextPage)="PageChanged($event)"
+                    (ChildData)="Getdata($event)"></app-personal-details>
+            </div>
+            <div class="main-body" *ngIf="MainDetails == 2">
+                <app-hostals-details (PrevPage)="PageChanged($event)"
+                    (ChildData)="Getdata($event)"></app-hostals-details>
+            </div>
+            <div class="main-body" *ngIf="MainDetails == 3">
+                <app-account (PrevPage)="PageChanged($event)" (ChildData)="Getdata($event)"></app-account>
+            </div>
+        </div>
+    </div>
+</div>

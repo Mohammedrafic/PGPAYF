@@ -1,0 +1,66 @@
+<div class="main">
+    <form [formGroup]="HostelDetailsForm" (ngSubmit)="Nextpage()">
+        <div class="main-cnt">
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="HostelName" name="HostelName" type="text" placeholder=" " />
+                        <span class="input__label">Hostel Name</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="HostalAddress" name="HostalAddress" type="text" placeholder=" " />
+                        <span class="input__label">Hostal Address</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="NoOfRooms" name="NoOfRooms" type="number" placeholder=" " />
+                        <span class="input__label">No Of Rooms</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="minrent" name="minrent" type="number" placeholder=" " />
+                        <span class="input__label">Minimum Rent</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="maxrent" name="maxrent" type="number" placeholder=" " />
+                        <span class="input__label">Maximum Rent</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="contactno" name="contactno" type="number" placeholder=" " />
+                        <span class="input__label">Contact Number</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="ownerName" name="ownerName" type="text" placeholder=" " />
+                        <span class="input__label">Owner Name</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="HostelPhotos" name="Age" type="file" placeholder=" " />
+                        <span class="input__label">Hostel Photos</span>
+                    </label>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="sub-btn" (click)="previouspage()" type="button">Previous Page</button>
+                <button class="sub-btn" type="submit">Next Page</button>
+            </div>
+        </div>
+    </form>
+</div>

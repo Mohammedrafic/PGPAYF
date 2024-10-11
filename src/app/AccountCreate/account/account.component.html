@@ -1,0 +1,32 @@
+<div class="main">
+    <form [formGroup]="AccountForm" (ngSubmit)="Save()">
+        <div class="main-cnt">
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="UserName" name="UserName" type="text" placeholder=" " />
+                        <span class="input__label">UserName</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="Email" name="Email" type="text" placeholder=" " />
+                        <span class="input__label">Email</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="Password" name="Password" type="text" placeholder=" " />
+                        <span class="input__label">Password</span>
+                    </label>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="sub-btn" (click)="previouspage()" type="button">Previous Page</button>
+                <button class="sub-btn" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
