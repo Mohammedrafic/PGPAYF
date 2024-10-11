@@ -13,8 +13,8 @@ export class RoleSelectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Submit(data: number){
-    this.route.navigate(['admin']);
+  Submit(Id: string){
+    this.route.navigate(['createacc',Id]);
   }
 
 }

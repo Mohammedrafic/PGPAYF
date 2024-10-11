@@ -15,17 +15,26 @@
                 </div>
             </div>
         </div>
-        <div class="cont-main">
+        <div *ngIf="ParamsId === 'admin'" class="cont-main">
             <div class="main-body" *ngIf="MainDetails == 1">
-                <app-personal-details (NextPage)="PageChanged($event)"
+                <app-personal-details [PageNo]="DetailsHeader[1].value" (NextPage)="PageChanged($event)"
                     (ChildData)="Getdata($event)"></app-personal-details>
             </div>
             <div class="main-body" *ngIf="MainDetails == 2">
-                <app-hostals-details (PrevPage)="PageChanged($event)"
+                <app-hostals-details [PageNo]="DetailsHeader[2].value" (PrevPage)="PageChanged($event)" (NextPage)="PageChanged($event)"
                     (ChildData)="Getdata($event)"></app-hostals-details>
             </div>
             <div class="main-body" *ngIf="MainDetails == 3">
-                <app-account (PrevPage)="PageChanged($event)" (ChildData)="Getdata($event)"></app-account>
+                <app-account [PageNo]="DetailsHeader[2].value" (PrevPage)="PageChanged($event)" (ChildData)="Getdata($event)"></app-account>
+            </div>
+        </div>
+        <div *ngIf="ParamsId === 'user'" class="cont-main">
+            <div class="main-body" *ngIf="MainDetails == 1">
+                <app-user-acc [PageNo]="DetailsHeader[1].value" (NextPage)="PageChanged($event)"
+                (ChildData)="Getdata($event)"></app-user-acc>
+            </div>
+            <div class="main-body" *ngIf="MainDetails == 2">
+                <app-account [PageNo]="DetailsHeader[0].value" (PrevPage)="PageChanged($event)" (ChildData)="Getdata($event)"></app-account>
             </div>
         </div>
     </div>

@@ -1,19 +1,19 @@
-import { Component, OnInit, Output, EventEmitter, Input  } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-personal-details',
-  templateUrl: './personal-details.component.html',
-  styleUrls: ['./personal-details.component.scss']
+  selector: 'app-user-acc',
+  templateUrl: './user-acc.component.html',
+  styleUrls: ['./user-acc.component.scss']
 })
-export class PersonalDetailsComponent implements OnInit {
+export class UserAccComponent implements OnInit {
 
   @Output() NextPage = new EventEmitter<any>();
   @Output() ChildData = new EventEmitter<FormGroup>();
   @Input() PageNo: number = 0;
 
-  PersonalDetailsForm = new FormGroup({
+  UserDetailsForm = new FormGroup({
     Name: new FormControl('',Validators.required),
     Age: new FormControl('',Validators.required), 
     PhNo: new FormControl('',Validators.required), 
@@ -32,9 +32,9 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   Nextpage(){
-    if (this.PersonalDetailsForm.valid) {
-      this.NextPage.emit({ No: this.PageNo, Key: 'PersonalDetails'}); 
-      this.ChildData.emit(this.PersonalDetailsForm)
+    if (this.UserDetailsForm.valid) {
+      this.NextPage.emit({ No: this.PageNo, Key: 'UserDetails'}); 
+      this.ChildData.emit(this.UserDetailsForm)
     } else {
       this.toastr.error('Invalid PersonalDetails Form!', 'Error')
     }

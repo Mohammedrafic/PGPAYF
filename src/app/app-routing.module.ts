@@ -25,10 +25,10 @@ const routes: Routes = [
   },
   {
     path: 'createacc',
-    component: RoleSelectionComponent
+    component: RoleSelectionComponent,
   },
   {
-    path: 'admin',
+    path: 'createacc/:id',
     component: CreateAccComponent
   }
 ];

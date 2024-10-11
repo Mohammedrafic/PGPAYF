@@ -1,0 +1,89 @@
+<div class="main">
+    <form [formGroup]="UserDetailsForm" (ngSubmit)="Nextpage()">
+        <div class="main-cnt">
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="Name" name="Name" type="text" placeholder=" " />
+                        <span class="input__label">Name</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="Age" name="Age" type="number" placeholder=" " />
+                        <span class="input__label">Age</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="PhNo" name="PhNo" type="number" placeholder=" " />
+                        <span class="input__label">Phone No</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="DOB" name="DOB" type="date" placeholder=" " />
+                        <span class="input__label">Date Of Birth</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <select class="input__field" formControlName="Maritalstatus" name="Maritalstatus"  name="" id="">
+                            <option selected value="">Select Status</option>
+                            <option value="married">Single</option>
+                            <option value="unmarried">Married</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Divorced">Divorced</option>
+                        </select>
+                        <span class="input__label">Marital status</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="State" name="State"  type="text" placeholder=" " />
+                        <span class="input__label">State</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="Address" name="Address"  type="text" placeholder=" " />
+                        <span class="input__label">Address</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="AltPhNo" name="AltPhNo"  type="number" placeholder=" " />
+                        <span class="input__label">Alternative Phone No</span>
+                    </label>
+                </div>
+            </div>
+            <div class="batch-1">
+                <div class="fields">
+                    <label class="input">
+                        <input class="input__field" formControlName="IDProof" name="IDProof"  type="file" placeholder=" " />
+                        <span class="input__label">ID Proof</span>
+                    </label>
+                </div>
+                <div class="fields">
+                    <label class="input">
+                        <select class="input__field" formControlName="Sex" name="Sex"  name="" id="">
+                            <option selected value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <span class="input__label">Sex</span>
+                    </label>
+                </div>
+            </div>
+            <div class="btn">
+                <button class="sub-btn" type="submit">Next Page</button>
+            </div>
+        </div>
+    </form>
+</div>

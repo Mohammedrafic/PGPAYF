@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,6 +12,7 @@ export class AccountComponent implements OnInit {
   @Output() NextPage = new EventEmitter<any>()
   @Output() PrevPage = new EventEmitter<any>()
   @Output() ChildData = new EventEmitter<FormGroup>();
+  @Input() PageNo: number = 0;
 
   AccountForm = new FormGroup({
     UserName: new FormControl('',Validators.required),
@@ -26,7 +27,7 @@ export class AccountComponent implements OnInit {
 
   Save(){
     if (this.AccountForm.valid) {
-      this.PrevPage.emit({ No: 3, Key: 'Account'});
+      this.PrevPage.emit({ No: this.PageNo, Key: 'Account'});
       this.ChildData.emit(this.AccountForm) 
     } else {
       this.toastr.error('Invalid Account Form!', 'Error')
@@ -34,6 +35,6 @@ export class AccountComponent implements OnInit {
   }
 
   previouspage(){
-    this.PrevPage.emit({ No: 2, Key: 'Account'}); 
+    this.PrevPage.emit({ No: this.PageNo, Key: 'Account'}); 
   }
 }

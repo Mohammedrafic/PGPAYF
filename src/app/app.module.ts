@@ -17,6 +17,7 @@ import { HostalsDetailsComponent } from './AccountCreate/hostals-details/hostals
 import { RoleSelectionComponent } from './role-selection/role-selection.component';
 import { AccountComponent } from './AccountCreate/account/account.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserAccComponent } from './AccountCreate/user-acc/user-acc.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     HostalsDetailsComponent,
     RoleSelectionComponent,
     AccountComponent,
+    UserAccComponent,
   ],
   imports: [
     BrowserModule,
