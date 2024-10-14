@@ -27,8 +27,8 @@ export class AccountComponent implements OnInit {
 
   Save(){
     if (this.AccountForm.valid) {
-      this.PrevPage.emit({ No: this.PageNo, Key: 'Account'});
-      this.ChildData.emit(this.AccountForm) 
+      this.NextPage.emit({ No: this.PageNo, Key: 'Account'});
+      this.ChildData.emit(this.AccountForm);
     } else {
       this.toastr.error('Invalid Account Form!', 'Error')
     }

@@ -6,6 +6,7 @@ import { DashboardComponent } from './Main/dashboard/dashboard.component';
 import { RequestComponent } from './Main/request/request.component';
 import { CreateAccComponent } from './AccountCreate/create-acc.component';
 import { RoleSelectionComponent } from './role-selection/role-selection.component';
+import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
+      },
+      {
+        path: 'userdashboard',
+        component: UserDashboardComponent,
       },
       {
         path: 'request',

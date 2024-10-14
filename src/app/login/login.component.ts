@@ -30,7 +30,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subs.add(this.LoginService.GetLoginDetails(Email, Password).subscribe((res: any) => {
       if (res.isSuccess) {
         console.log(res.content);
-        this.router.navigate(['main','dashboard']);
+        if(res.content.userRole == 'Admin'){
+          this.router.navigate(['main','dashboard']);
+        }else if(res.content.userRole == 'User'){
+          this.router.navigate(['main','userdashboard']);
+        }else{
+          this.router.navigate(['main','']);
+        }
       }
     }));
   }

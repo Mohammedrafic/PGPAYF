@@ -18,6 +18,7 @@ import { RoleSelectionComponent } from './role-selection/role-selection.componen
 import { AccountComponent } from './AccountCreate/account/account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserAccComponent } from './AccountCreate/user-acc/user-acc.component';
+import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { UserAccComponent } from './AccountCreate/user-acc/user-acc.component';
     RoleSelectionComponent,
     AccountComponent,
     UserAccComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,12 +17,14 @@ export interface UserDetails{
     AltPhoneNo?: number;
     ProofPath?: string;
     Sex?: string;
-    HostelName: string;
-    HostalAddress: string;
-    NoOfRooms: number;
-    MinimumRent: number;
-    MaximunRent: number;
-    ContactNumber: number;
-    OwnerName?: string;
-    HostalPhotosPath?: string;
+    HostelDetails?: {
+        HostelName: string;
+        HostalAddress: string;
+        NoOfRooms: number;
+        MinimumRent: number;
+        MaximunRent: number;
+        ContactNumber: number;
+        OwnerName?: string;
+        HostalPhotosPath?: string;
+    };
 }
