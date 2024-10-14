@@ -1,1 +1,62 @@
-<p>user-dashboard works!</p>
+<div>
+    <div class="top">
+        <div class="blocka">
+            <div class="filter">
+                <div class="filter-bdy">
+                    <label class="label-bdy" for="Location">Location</label>
+                    <input class="input__field" type="text" name="Location" id="Location">
+                </div>
+                <div class="filter-bdy">
+                    <label class="label-bdy" for="MinAmount">MinAmount</label>
+                    <input class="input__field" type="text" name="MinAmount" id="MinAmount">
+                </div>
+                <div class="filter-bdy">
+                    <label class="label-bdy" for="MaxAmount">MaxAmount</label>
+                    <input class="input__field" type="text" name="MaxAmount" id="MaxAmount">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top">
+        <div class="blockb">
+            <div class="list-main" *ngFor="let data of HostelList">
+                <div class="list-header">
+                    <h2>Hostel Name</h2>
+                    <div class="stars">
+                        <h3>&#9733;</h3>
+                        <h3>&#9733;</h3>
+                        <h3>&#9733;</h3>
+                        <h3>&#9733;</h3>
+                        <h3>&#9733;</h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="list-body">
+                    <div class="list-cont">
+                        <div class="left-dtl">
+                            <div class="data-header">
+                                <h1>Owner Name</h1>
+                                <label for="">PhNo(7339692875)</label>
+                            </div>
+                            <div>
+                                <label for="">Chennai</label>
+                            </div>
+                            <div class="data-header">
+                                <h4>Avaliable Rooms :</h4>
+                                <h4>30</h4>
+                            </div>
+                            <div class="btn-btm">
+                                <button class="btn-dtl">Details</button>
+                                <button class="btn-bk">Book</button>
+                            </div>
+                        </div>
+                        <div class="vertical-line"></div>
+                        <div class="right-dtl">
+                            <h1>Photos</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

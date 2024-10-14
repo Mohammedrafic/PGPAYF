@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subs.add(this.LoginService.GetLoginDetails(Email, Password).subscribe((res: any) => {
       if (res.isSuccess) {
         console.log(res.content);
+        localStorage.setItem('userRole',res.content.userRole)
         if(res.content.userRole == 'Admin'){
           this.router.navigate(['main','dashboard']);
         }else if(res.content.userRole == 'User'){
