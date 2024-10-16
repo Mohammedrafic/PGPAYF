@@ -1,59 +1,51 @@
 <div>
     <div class="top">
         <div class="blocka">
-            <div class="filter">
-                <div class="filter-bdy">
-                    <label class="label-bdy" for="Location">Location</label>
-                    <input class="input__field" type="text" name="Location" id="Location">
+            <div class="filter-container">
+                <div class="filter-body">
+                    <span><h3>Hostel In chennai, Tamilnadu</h3></span>
                 </div>
-                <div class="filter-bdy">
-                    <label class="label-bdy" for="MinAmount">MinAmount</label>
-                    <input class="input__field" type="text" name="MinAmount" id="MinAmount">
-                </div>
-                <div class="filter-bdy">
-                    <label class="label-bdy" for="MaxAmount">MaxAmount</label>
-                    <input class="input__field" type="text" name="MaxAmount" id="MaxAmount">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="top">
-        <div class="blockb">
-            <div class="list-main" *ngFor="let data of HostelList">
-                <div class="list-header">
-                    <h2>Hostel Name</h2>
-                    <div class="stars">
-                        <h3>&#9733;</h3>
-                        <h3>&#9733;</h3>
-                        <h3>&#9733;</h3>
-                        <h3>&#9733;</h3>
-                        <h3>&#9733;</h3>
+                <div class="filter-body">
+                    <div class="sort-fil">
+                        <span><label for="">Sort By</label></span>
+                        <select class="sort-select" name="" id="">
+                            <option value="LowtoHigh">Low to High</option>
+                            <option value="HightoLow">High to Low</option>
+                            <option value="GuestRatings">Guest ratings</option>
+                        </select>
                     </div>
                 </div>
-                <hr>
-                <div class="list-body">
-                    <div class="list-cont">
-                        <div class="left-dtl">
-                            <div class="data-header">
-                                <h1>Owner Name</h1>
-                                <label for="">PhNo(7339692875)</label>
-                            </div>
-                            <div>
-                                <label for="">Chennai</label>
-                            </div>
-                            <div class="data-header">
-                                <h4>Avaliable Rooms :</h4>
-                                <h4>30</h4>
-                            </div>
-                            <div class="btn-btm">
-                                <button class="btn-dtl">Details</button>
-                                <button class="btn-bk">Book</button>
-                            </div>
+                <div class="filter-body">
+                    <span><label for="">Filter</label></span>
+                </div>
+            </div>
+            <hr class="line">
+            <div class="main-body">
+                <div class="left-bar">
+                    <div class="img-panel">
+                        <img src="assets/images/beds-hostel-affordable-housing-36997317.webp" alt="">
+                    </div>
+                    <div class="img-list">
+                        <div *ngFor="let data of imglist" class="list">
+                            <img src="assets/images/beds-hostel-affordable-housing-36997317.webp" alt="">
                         </div>
-                        <div class="vertical-line"></div>
-                        <div class="right-dtl">
-                            <h1>Photos</h1>
+                    </div>
+                </div>
+                <div class="right-bar">
+                    <div class="right-bar-header bar">
+                        <div>
+                            <span><h3>Rudhra Hostel</h3></span>
+                            <span><h6>Triplicane, Chennai</h6></span>
                         </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="right-bar-middle bar">
+                        <p>hostel</p>
+                    </div>
+                    <div class="right-bar-footer bar">
+                        <p>rudhra</p>
                     </div>
                 </div>
             </div>
