@@ -3,7 +3,9 @@
         <div class="blocka">
             <div class="filter-container">
                 <div class="filter-body">
-                    <span><h3>Hostel In chennai, Tamilnadu</h3></span>
+                    <span>
+                        <h3>Hostel In chennai, Tamilnadu</h3>
+                    </span>
                 </div>
                 <div class="filter-body">
                     <div class="sort-fil">
@@ -20,32 +22,80 @@
                 </div>
             </div>
             <hr class="line">
-            <div class="main-body">
+            <div class="main-body" *ngFor="let data of HostelDetails">
                 <div class="left-bar">
                     <div class="img-panel">
-                        <img src="assets/images/beds-hostel-affordable-housing-36997317.webp" alt="">
+                        <img src="{{data.photos[2].imgpath}}" alt="">
                     </div>
                     <div class="img-list">
-                        <div *ngFor="let data of imglist" class="list">
-                            <img src="assets/images/beds-hostel-affordable-housing-36997317.webp" alt="">
+                        <div *ngFor="let pic of data.photos;let i=index" class="list">
+                            <img *ngIf="i < 2" src="{{pic.imgpath}}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="right-bar">
                     <div class="right-bar-header bar">
-                        <div>
-                            <span><h3>Rudhra Hostel</h3></span>
-                            <span><h6>Triplicane, Chennai</h6></span>
+                        <div class="head-dtl">
+                            <span>
+                                <h3>{{data.hostelDetails.hostelName}}</h3>
+                            </span>
+                            <span>
+                                <h6>{{data.hostelDetails.hostalAddress}}</h6>
+                            </span>
                         </div>
                         <div>
 
                         </div>
                     </div>
                     <div class="right-bar-middle bar">
-                        <p>hostel</p>
+                        <div class="ratings">
+                            <div class="success-rate">
+                                <span>{{data.ratings.starrate}}<span>&#9733;</span></span>
+                            </div>
+                            <div>
+                                <span>
+                                    <h6>({{data.ratings.totalRatings}} Ratings)</h6>
+                                </span>
+                            </div>
+                            <div>
+                                <span>
+                                    <h6>{{data.ratings.status}}</h6>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fecilities-main">
+                            <ul class="fecilities">
+                                <li *ngFor="let fac of data.hostelFacility">
+                                    <span>
+                                        <h6>{{fac.name}}</h6>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="">
+
+                        </div>
                     </div>
                     <div class="right-bar-footer bar">
-                        <p>rudhra</p>
+                        <div class="footer-top">
+                            <div class="currency">
+                                <span>
+                                    <h3>&#8377;{{data.hostelDetails.rent}}</h3>
+                                </span>
+                                <span class="offer-price">
+                                    <h3>&#8377;{{data.hostelDetails.minimumRent}}</h3>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="offer">
+                                    <h5>{{data.discounts.offerper}}</h5>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="footer-btm">
+                            <button class="view-dtl">View Details</button>
+                            <button class="bk">Book</button>
+                        </div>
                     </div>
                 </div>
             </div>

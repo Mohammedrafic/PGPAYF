@@ -22,13 +22,33 @@ export class CreateAccComponent implements OnInit, OnDestroy {
 
   DetailsHeader: any[] = [];
   AdminHeader: any[] = [
-    { title: 'PersonalDetails', value: 1, color: 'white' },
-    { title: 'HostalsDetails', value: 2, color: 'white' },
-    { title: 'Account', value: 3, color: 'white' },
+    {
+      title: 'PersonalDetails', page: {
+        Frontpage: 2, prevpage: 1
+      }, color: 'white', value: 1
+    },
+    {
+      title: 'HostalsDetails', page: {
+        Frontpage: 3, prevpage: 2
+      }, color: 'white', value: 2
+    },
+    {
+      title: 'Account', page: {
+        Frontpage: 4, prevpage: 3
+      }, color: 'white', value: 3
+    },
   ];
   UserHeader: any[] = [
-    { title: 'PersonalDetails', value: 1, color: 'white' },
-    { title: 'Account', value: 2, color: 'white' },
+    {
+      title: 'PersonalDetails', page: {
+        Frontpage: 2, prevpage: 1
+      }, color: 'white', value: 1
+    },
+    {
+      title: 'Account', page: {
+        Frontpage: 3, prevpage: 2
+      }, color: 'white', value: 2
+    },
   ];
   MainDetails: number = 1;
   personalDetailsForm: any;
@@ -115,7 +135,7 @@ export class CreateAccComponent implements OnInit, OnDestroy {
 
   formValues() {
     let UserDetails: UserDetails = {
-      UserName: this.accountForm?.UserName || '', 
+      UserName: this.accountForm?.UserName || '',
       Email: this.accountForm?.Email || '',
       Password: this.accountForm?.Password || '',
       UserRole: this.ParamsId || '',
@@ -144,7 +164,7 @@ export class CreateAccComponent implements OnInit, OnDestroy {
         HostalPhotosPath: this.hostalsDetailsForm?.HostelPhotos || ''
       }
     };
-    
+
     return UserDetails;
   }
 

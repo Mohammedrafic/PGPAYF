@@ -12,7 +12,7 @@ export class AccountComponent implements OnInit {
   @Output() NextPage = new EventEmitter<any>()
   @Output() PrevPage = new EventEmitter<any>()
   @Output() ChildData = new EventEmitter<FormGroup>();
-  @Input() PageNo: number = 0;
+  @Input() PageNo: any;
 
   AccountForm = new FormGroup({
     UserName: new FormControl('',Validators.required),
@@ -27,7 +27,7 @@ export class AccountComponent implements OnInit {
 
   Save(){
     if (this.AccountForm.valid) {
-      this.NextPage.emit({ No: this.PageNo, Key: 'Account'});
+      this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'Account'});
       this.ChildData.emit(this.AccountForm);
     } else {
       this.toastr.error('Invalid Account Form!', 'Error')
@@ -35,6 +35,6 @@ export class AccountComponent implements OnInit {
   }
 
   previouspage(){
-    this.PrevPage.emit({ No: this.PageNo, Key: 'Account'}); 
+    this.PrevPage.emit({ No: this.PageNo.prevpage, Key: 'Account'}); 
   }
 }

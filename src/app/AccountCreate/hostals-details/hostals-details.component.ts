@@ -12,7 +12,7 @@ export class HostalsDetailsComponent implements OnInit {
   @Output() NextPage = new EventEmitter<any>()
   @Output() PrevPage = new EventEmitter<any>()
   @Output() ChildData = new EventEmitter<FormGroup>();
-  @Input() PageNo: number = 0;
+  @Input() PageNo: any;
 
   HostelDetailsForm = new FormGroup({
     HostelName: new FormControl('',Validators.required),
@@ -32,7 +32,7 @@ export class HostalsDetailsComponent implements OnInit {
 
   Nextpage(){
     if (this.HostelDetailsForm.valid) {
-      this.NextPage.emit({ No: this.PageNo, Key: 'HostelDetails'}); 
+      this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'HostelDetails'}); 
       this.ChildData.emit(this.HostelDetailsForm)
     } else {
       this.toastr.error('Invalid HostelDetails Form!', 'Error')
@@ -40,7 +40,7 @@ export class HostalsDetailsComponent implements OnInit {
   }
 
   previouspage(){
-    this.PrevPage.emit({ No: this.PageNo, Key: 'HostelDetails'}); 
+    this.PrevPage.emit({ No: this.PageNo.prevpage, Key: 'HostelDetails'}); 
   }
 
 }

@@ -11,7 +11,7 @@ export class PersonalDetailsComponent implements OnInit {
 
   @Output() NextPage = new EventEmitter<any>();
   @Output() ChildData = new EventEmitter<FormGroup>();
-  @Input() PageNo: number = 0;
+  @Input() PageNo: any;
 
   PersonalDetailsForm = new FormGroup({
     Name: new FormControl('',Validators.required),
@@ -32,8 +32,9 @@ export class PersonalDetailsComponent implements OnInit {
   }
 
   Nextpage(){
+    debugger;
     if (this.PersonalDetailsForm.valid) {
-      this.NextPage.emit({ No: this.PageNo, Key: 'PersonalDetails'}); 
+      this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'PersonalDetails'}); 
       this.ChildData.emit(this.PersonalDetailsForm)
     } else {
       this.toastr.error('Invalid PersonalDetails Form!', 'Error')

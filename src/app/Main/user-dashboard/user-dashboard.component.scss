@@ -64,6 +64,7 @@
   margin: 15px;
   display: flex;
   margin-bottom: 30px;
+  flex: 0;
 }
 
 .right-bar {
@@ -100,4 +101,91 @@ img {
 .bar {
   width: 100%;
   height: 100%;
+}
+
+.ratings {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.success-rate {
+    border: 2px;
+    background-color: #52b520;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+ul.fecilities {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.fecilities-main {
+    margin-top: 6px;
+}
+
+.head-dtl {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.right-bar-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-btm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.offer-price {
+    text-decoration: line-through;
+    font-size: 16px;
+    color: #6d787d;
+}
+
+.offer {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f5a623;
+    line-height: 25px;
+}
+.view-dtl {
+    padding: 7px;
+    border-radius: 10px;
+    font-size: larger;
+    background-color: #00ff00;
+    cursor: pointer;
+}
+
+.bk {
+    padding: 7px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    width: 100%;
+    max-width: 20%;
+    font-size: larger;
+    cursor: pointer;
 }
