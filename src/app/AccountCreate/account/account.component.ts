@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
   }
 
   Save(){
-    if (this.AccountForm.valid) {
+    if (true) {
       this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'Account'});
       this.ChildData.emit(this.AccountForm);
     } else {

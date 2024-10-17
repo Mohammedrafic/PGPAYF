@@ -66,7 +66,8 @@
                         <div class="fecilities-main">
                             <ul class="fecilities">
                                 <li *ngFor="let fac of data.hostelFacility">
-                                    <span>
+                                    <span class="fac-icon">
+                                        <img class="fac-img" src="{{fac.imgpath}}" alt="">
                                         <h6>{{fac.name}}</h6>
                                     </span>
                                 </li>

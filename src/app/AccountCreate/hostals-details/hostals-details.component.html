@@ -52,7 +52,7 @@
                 </div>
                 <div class="fields">
                     <label class="input">
-                        <input class="input__field" formControlName="HostelPhotos" name="Age" type="file" placeholder=" " />
+                        <input class="input__field" formControlName="HostelPhotos" (change)="onFileSelected($event)" name="Age" type="file" multiple placeholder=" " />
                         <span class="input__label">Hostel Photos</span>
                     </label>
                 </div>

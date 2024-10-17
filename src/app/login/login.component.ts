@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   Login() {
     let Email = this.LoginForm.controls['Email'].value;

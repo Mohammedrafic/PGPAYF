@@ -4,6 +4,7 @@ import { UserService } from './Service/service.service';
 import { UserDetails } from 'src/app/model/UserDetails';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SubSink } from 'subsink';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-acc',
@@ -17,7 +18,8 @@ export class CreateAccComponent implements OnInit, OnDestroy {
   constructor(
     private UserService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   DetailsHeader: any[] = [];
@@ -29,12 +31,12 @@ export class CreateAccComponent implements OnInit, OnDestroy {
     },
     {
       title: 'HostalsDetails', page: {
-        Frontpage: 3, prevpage: 2
+        Frontpage: 3, prevpage: 1
       }, color: 'white', value: 2
     },
     {
       title: 'Account', page: {
-        Frontpage: 4, prevpage: 3
+        Frontpage: 3, prevpage: 2
       }, color: 'white', value: 3
     },
   ];
@@ -122,12 +124,20 @@ export class CreateAccComponent implements OnInit, OnDestroy {
     if (this.personalDetailsForm && this.accountForm) {
       if (this.hostalsDetailsForm || !this.hostalsDetailsForm) {
         this.subs.add(
-          this.UserService.AddUser(UserDetails).subscribe((res: any) => {
-            if (res.isSuccess) {
-              console.log(res.content);
-              this.router.navigate(['']);
+          this.UserService.AddUser(UserDetails).subscribe(
+            (res: any) => {
+              if (res.isSuccess) {
+                console.log(res.content);
+                this.router.navigate(['']);
+              } else {
+                this.toastr.error(res.message, 'Error');
+              }
+            },
+            (error) => {
+              console.error('API error:', error);
+              this.toastr.error(error.error.message, 'Error');
             }
-          })
+          )
         );
       }
     }

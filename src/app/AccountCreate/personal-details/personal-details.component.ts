@@ -33,7 +33,7 @@ export class PersonalDetailsComponent implements OnInit {
 
   Nextpage(){
     debugger;
-    if (this.PersonalDetailsForm.valid) {
+    if (true) {
       this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'PersonalDetails'}); 
       this.ChildData.emit(this.PersonalDetailsForm)
     } else {

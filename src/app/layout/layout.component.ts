@@ -11,7 +11,6 @@ export class LayoutComponent implements OnInit {
   navbarItems: any;
   ngOnInit(): void {
     let userRole = localStorage.getItem('userRole');
-    userRole = 'Admin';
     if (userRole == 'Admin') {
       this.navbarItems = [
         { name: 'Dashboard', isOpen: false, path: 'main/dashboard', imgpath: "assets/images/dashboard.png" },

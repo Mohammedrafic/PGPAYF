@@ -13,6 +13,7 @@ export class HostalsDetailsComponent implements OnInit {
   @Output() PrevPage = new EventEmitter<any>()
   @Output() ChildData = new EventEmitter<FormGroup>();
   @Input() PageNo: any;
+  selectedFiles: File[] = [];
 
   HostelDetailsForm = new FormGroup({
     HostelName: new FormControl('',Validators.required),
@@ -22,7 +23,7 @@ export class HostalsDetailsComponent implements OnInit {
     maxrent: new FormControl('',Validators.required), 
     contactno: new FormControl('',Validators.required), 
     ownerName: new FormControl('',Validators.required),
-    HostelPhotos: new FormControl('',Validators.required)
+    HostelPhotos: new FormControl<File[]|null>(null,Validators.required)
   })
 
   constructor(private toastr: ToastrService) { }
@@ -31,7 +32,8 @@ export class HostalsDetailsComponent implements OnInit {
   }
 
   Nextpage(){
-    if (this.HostelDetailsForm.valid) {
+    if (true) {
+      debugger;
       this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'HostelDetails'}); 
       this.ChildData.emit(this.HostelDetailsForm)
     } else {
@@ -41,6 +43,15 @@ export class HostalsDetailsComponent implements OnInit {
 
   previouspage(){
     this.PrevPage.emit({ No: this.PageNo.prevpage, Key: 'HostelDetails'}); 
+  }
+
+  onFileSelected(event: any): void {
+    if (event.target.files) {
+      this.selectedFiles = Array.from(event.target.files);
+      this.HostelDetailsForm.patchValue({
+        HostelPhotos: this.selectedFiles
+      });
+    }
   }
 
 }
