@@ -81,6 +81,8 @@ export class LayoutComponent implements OnInit {
   }
 
   Navigate(path: any) {
-    this.route.navigate([path]);
+    if(path != undefined){
+      this.route.navigate([path]);
+    }
   }
 }
