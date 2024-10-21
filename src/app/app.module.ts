@@ -15,10 +15,12 @@ import { PersonalDetailsComponent } from './AccountCreate/personal-details/perso
 import { HostalsDetailsComponent } from './AccountCreate/hostals-details/hostals-details.component';
 import { RoleSelectionComponent } from './role-selection/role-selection.component';
 import { AccountComponent } from './AccountCreate/account/account.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserAccComponent } from './AccountCreate/user-acc/user-acc.component';
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { SpinnerComponent } from './loader/spinner/spinner.component';
+import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { AgGridModule } from 'ag-grid-angular';
     AccountComponent,
     UserAccComponent,
     UserDashboardComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,13 @@ import { AgGridModule } from 'ag-grid-angular';
     BrowserAnimationsModule,
     AgGridModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })

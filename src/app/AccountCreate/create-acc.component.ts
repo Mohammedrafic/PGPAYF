@@ -144,7 +144,8 @@ export class CreateAccComponent implements OnInit, OnDestroy {
   }
 
   formValues() {
-    let UserDetails: UserDetails = {
+    const formData = new FormData();
+    const UserDetails: any = {
       UserName: this.accountForm?.UserName || '',
       Email: this.accountForm?.Email || '',
       Password: this.accountForm?.Password || '',
@@ -171,11 +172,34 @@ export class CreateAccComponent implements OnInit, OnDestroy {
         MaximunRent: this.hostalsDetailsForm?.maxrent || 0,
         ContactNumber: this.hostalsDetailsForm?.contactno || 0,
         OwnerName: this.hostalsDetailsForm?.ownerName || '',
-        HostalPhotosPath: this.hostalsDetailsForm?.HostelPhotos || ''
+        HostalPhotosPath: this.hostalsDetailsForm?.HostelPhotos || []
       }
     };
+  
+    Object.keys(UserDetails).forEach(key => {
+      if (key === 'HostelDetails') {
+        const hostelDetails = UserDetails[key];
+        Object.keys(hostelDetails).forEach(hostelKey => {
+          if (hostelKey === 'HostalPhotosPath') {
+            hostelDetails[hostelKey].forEach((file: File) => {
+              formData.append(`${key}[${hostelKey}]`, file, file.name);
+            });
+          } else {
+            formData.append(`${key}[${hostelKey}]`, hostelDetails[hostelKey]);
+          }
+        });
+      } else {
+        formData.append(key, UserDetails[key]);
+      }
+    });
 
-    return UserDetails;
+    const hostelDetails = UserDetails.HostelDetails;
+    if (hostelDetails && hostelDetails.HostalPhotosPath) {
+      hostelDetails.HostalPhotosPath.forEach((file: File) => {
+        formData.append('HostelDetails[HostalPhotosPath]', file, file.name);
+      });
+    }
+    return formData;
   }
 
   ngOnDestroy(): void {

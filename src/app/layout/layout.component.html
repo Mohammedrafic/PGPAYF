@@ -12,16 +12,16 @@
             <li *ngFor="let item of navbarItems">
                 <div (click)="toggleSubList(item)">
                     <div class="nav-details">
-                        <img class="nav-img" width="40px" height="40px" src="{{item.imgpath}}" alt="">
+                        <img class="nav-img" width="40px" height="40px" src="{{item.imgPath}}" alt="">
                         <span class="nav-text" (click)="Navigate(item.path)">{{ item.name }}</span>
-                        <span *ngIf="item.subList" class="arrow">&#9660;</span>
+                        <span *ngIf="item.subMenuItems" class="arrow">&#9660;</span>
                     </div>
                 </div>
-                <ul *ngIf="item.isOpen && item.subList">
-                    <li *ngFor="let subItem of item.subList">
+                <ul *ngIf="item.isOpen && item.subMenuItems">
+                    <li *ngFor="let subItem of item.subMenuItems">
                         <div (click)="Navigate(subItem.path)">
                             <div class="nav-details">
-                                <img class="nav-img" width="40px" height="40px" src="{{subItem.imgpath}}" alt="">
+                                <img class="nav-img" width="40px" height="40px" src="{{subItem.imgPath}}" alt="">
                                 <span class="nav-text" (click)="Navigate(subItem.path)">{{ subItem.name }}</span>
                             </div>
                         </div>
