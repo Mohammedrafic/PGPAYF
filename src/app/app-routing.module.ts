@@ -9,7 +9,7 @@ import { RoleSelectionComponent } from './role-selection/role-selection.componen
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'main',
     component: LayoutComponent,

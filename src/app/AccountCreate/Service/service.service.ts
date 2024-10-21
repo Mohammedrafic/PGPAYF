@@ -8,7 +8,7 @@ import { UserDetails } from 'src/app/model/UserDetails';
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  AddUser(UserDetails: UserDetails){
+  AddUser(UserDetails: any){
     return this.http.post('https://localhost:7202/AddUser',UserDetails);
   }
 }
