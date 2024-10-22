@@ -62,15 +62,14 @@ html {
 
 /* Hide sub-list by default */
 .navbar-main li ul {
-  display: none;
   padding-left: 20px;
   background-color: #2c3e50;
 }
 
-/* Show sub-list on hover */
-.navbar-main li:hover ul {
-  display: block;
-}
+// /* Show sub-list on hover */
+// .navbar-main li:hover ul {
+//   display: block;
+// }
 
 /* Sub-list styling */
 .navbar-main li ul li {
