@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BaseUrl: 'http://pgpay.somee.com/'
+  BaseUrl: 'http://pgpay.somee.com/',
+  //BaseUrl: 'https://localhost:7202/'
 };
 
 /*
