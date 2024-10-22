@@ -14,7 +14,7 @@
                     <div class="nav-details">
                         <img class="nav-img" width="40px" height="40px" src="{{item.imgPath}}" alt="">
                         <span class="nav-text" (click)="Navigate(item.path)">{{ item.name }}</span>
-                        <span *ngIf="item.subMenuItems" class="arrow">&#9660;</span>
+                        <span *ngIf="item.subMenuItems.length > 0" class="arrow">&#9660;</span>
                     </div>
                 </div>
                 <ul *ngIf="item.isOpen && item.subMenuItems">
