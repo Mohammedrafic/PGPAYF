@@ -52,15 +52,14 @@ export class HostalsDetailsComponent implements OnInit {
   }
 
   onFileSelected(event: any): void {
+    debugger;
     const files: FileList = event.target.files;
     if (files.length > 0) {
       const selectedFiles: File[] = [];
       for (let i = 0; i < files.length; i++) {
         selectedFiles.push(files[i]);
       }
-      this.HostelDetailsForm.patchValue({
-        HostelPhotos: selectedFiles
-      });
+      this.selectedFiles = selectedFiles;
     }
   }
 

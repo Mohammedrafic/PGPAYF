@@ -9,6 +9,7 @@ import { RoleSelectionComponent } from './role-selection/role-selection.componen
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
   {
     path: 'main',

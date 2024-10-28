@@ -25,11 +25,11 @@
             <div class="main-body" *ngFor="let data of HostelDetails">
                 <div class="left-bar">
                     <div class="img-panel">
-                        <img src="{{data.photos[2].imgpath}}" alt="">
+                        <img src="{{data.photos[2]}}" alt="">
                     </div>
                     <div class="img-list">
-                        <div *ngFor="let pic of data.photos;let i=index" class="list">
-                            <img *ngIf="i < 2" src="{{pic.imgpath}}" alt="">
+                        <div *ngFor="let pic of data.photos;let i=index">
+                            <img class="list" *ngIf="i < 2" [src]="pic" alt="Hostel Photo">
                         </div>
                     </div>
                 </div>

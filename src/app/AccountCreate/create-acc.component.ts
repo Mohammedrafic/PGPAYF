@@ -127,7 +127,6 @@ export class CreateAccComponent implements OnInit, OnDestroy {
           this.UserService.AddUser(UserDetails).subscribe(
             (res: any) => {
               if (res.isSuccess) {
-                console.log(res.content);
                 this.router.navigate(['']);
               } else {
                 this.toastr.error(res.message, 'Error');
@@ -176,28 +175,37 @@ export class CreateAccComponent implements OnInit, OnDestroy {
       }
     };
   
-    Object.keys(UserDetails).forEach(key => {
-      if (key === 'HostelDetails') {
-        const hostelDetails = UserDetails[key];
-        Object.keys(hostelDetails).forEach(hostelKey => {
-          if (hostelKey === 'HostalPhotosPath') {
-            hostelDetails[hostelKey].forEach((file: File) => {
-              formData.append(`${key}[${hostelKey}]`, file, file.name);
-            });
-          } else {
-            formData.append(`${key}[${hostelKey}]`, hostelDetails[hostelKey]);
-          }
-        });
-      } else {
-        formData.append(key, UserDetails[key]);
-      }
-    });
-
-    const hostelDetails = UserDetails.HostelDetails;
-    if (hostelDetails && hostelDetails.HostalPhotosPath) {
-      hostelDetails.HostalPhotosPath.forEach((file: File) => {
-        formData.append('HostelDetails[HostalPhotosPath]', file, file.name);
-      });
+    formData.append("UserName", UserDetails.UserName);
+    formData.append("Email", UserDetails.Email);
+    formData.append("Password", UserDetails.Password);
+    formData.append("UserRole", UserDetails.UserRole);
+    formData.append("CreateBy", UserDetails.CreateBy);
+    formData.append("UpdateBy", UserDetails.UpdateBy);
+    formData.append("CreateDate", new Date().toISOString());
+    formData.append("UpdateDate", new Date().toISOString());
+    formData.append("Name", UserDetails.Name);
+    formData.append("Age", UserDetails.Age.toString());
+    formData.append("PhoneNo", UserDetails.PhoneNo.toString());
+    formData.append("DateOfBirth", UserDetails.DateOfBirth ?? null);
+    formData.append("MaritalStatus", UserDetails.MaritalStatus);
+    formData.append("State", UserDetails.State);
+    formData.append("Address", UserDetails.Address);
+    formData.append("AltPhoneNo", UserDetails.AltPhoneNo.toString());
+    formData.append("ProofPath", UserDetails.ProofPath);
+    formData.append("Sex", UserDetails.Sex);
+    
+    // Nested HostelDetails fields
+    formData.append("HostelDetails.HostelName", UserDetails.HostelDetails.HostelName);
+    formData.append("HostelDetails.HostalAddress", UserDetails.HostelDetails.HostalAddress);
+    formData.append("HostelDetails.NoOfRooms", UserDetails.HostelDetails.NoOfRooms.toString());
+    formData.append("HostelDetails.MinimumRent", UserDetails.HostelDetails.MinimumRent.toString());
+    formData.append("HostelDetails.MaximunRent", UserDetails.HostelDetails.MaximunRent.toString());
+    formData.append("HostelDetails.ContactNumber", UserDetails.HostelDetails.ContactNumber.toString());
+    formData.append("HostelDetails.OwnerName", UserDetails.HostelDetails.OwnerName);
+    
+    // Append each file in HostalPhotosPath array
+    for (const file of UserDetails.HostelDetails.HostalPhotosPath) {
+      formData.append("HostelDetails.HostalPhotosPath", file, file.name);
     }
     return formData;
   }
