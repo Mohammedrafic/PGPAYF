@@ -21,6 +21,7 @@ import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.com
 import { AgGridModule } from 'ag-grid-angular';
 import { SpinnerComponent } from './loader/spinner/spinner.component';
 import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
+import { HostelsComponent } from './Main/hostels/hostels.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
     UserAccComponent,
     UserDashboardComponent,
     SpinnerComponent,
+    HostelsComponent,
   ],
   imports: [
     BrowserModule,

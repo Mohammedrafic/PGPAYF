@@ -127,6 +127,7 @@ export class CreateAccComponent implements OnInit, OnDestroy {
           this.UserService.AddUser(UserDetails).subscribe(
             (res: any) => {
               if (res.isSuccess) {
+                this.toastr.success('User has been created....', 'Success');
                 this.router.navigate(['']);
               } else {
                 this.toastr.error(res.message, 'Error');

@@ -7,6 +7,7 @@ import { RequestComponent } from './Main/request/request.component';
 import { CreateAccComponent } from './AccountCreate/create-acc.component';
 import { RoleSelectionComponent } from './role-selection/role-selection.component';
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
+import { HostelsComponent } from './Main/hostels/hostels.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'request',
         component: RequestComponent
+      },
+      {
+        path: 'hostels',
+        component: HostelsComponent
       }
     ],
   },
