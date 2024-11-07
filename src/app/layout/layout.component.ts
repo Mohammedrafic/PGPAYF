@@ -15,7 +15,6 @@ export class LayoutComponent implements OnInit {
     let userRole = localStorage.getItem('userRole');
     this.service.GetLayoutData(userRole).subscribe((res: any) => {
       if (res.isSuccess) {
-        console.log(res.content);
         this.navbarItems = res.content;
       } else {
         this.toastr.error(res.message, 'Error');
@@ -34,7 +33,6 @@ export class LayoutComponent implements OnInit {
   }
 
   Navigate(path: any) {
-    debugger;
     if (path != undefined) {
       this.route.navigate([path]);
     }

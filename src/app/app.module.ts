@@ -22,6 +22,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { SpinnerComponent } from './loader/spinner/spinner.component';
 import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
 import { HostelsComponent } from './Main/hostels/hostels.component';
+import { PDetailsComponent } from './pdetails/pdetails.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { HostelsComponent } from './Main/hostels/hostels.component';
     UserDashboardComponent,
     SpinnerComponent,
     HostelsComponent,
+    PDetailsComponent,
   ],
   imports: [
     BrowserModule,

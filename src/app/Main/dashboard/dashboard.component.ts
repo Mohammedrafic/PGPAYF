@@ -8,39 +8,45 @@ import { DashboardService } from './service/dashboard.service';
 })
 export class DashboardComponent implements OnInit {
 
-  PendingUserRent = 1456;
-
+  public PendingUserRent: number = 0;
+  public TotalUsers: number = 0;
+  public TotalIncome: number = 0;
+  public MinAmt: number = 0;
+  public NoOfHostels: number = 0;
   public rowData: any[] = [];
   public columnDefs: any = [
-    { field: 'userId', headerName: 'UserId', sortable: true, filter: true },
-    { field: 'name', headerName: 'Name', sortable: true, filter: true },
-    { field: 'age', headerName: 'Age', sortable: true, filter: true },
-    { field: 'phoneNo', headerName: 'PhoneNo', sortable: true, filter: true },
-    { field: 'dateOfBirth', headerName: 'DateOfBirth', sortable: true, filter: true },
-    { field: 'maritalStatus', headerName: 'MaritalStatus', sortable: true, filter: true },
-    { field: 'state', headerName: 'State', sortable: true, filter: true },
-    { field: 'address', headerName: 'Address', sortable: true, filter: true },
-    { field: 'altPhoneNo', headerName: 'AltPhoneNo', sortable: true, filter: true },
-    { field: 'sex', headerName: 'Sex', sortable: true, filter: true },
-    { field: 'createDate', headerName: 'CreateDate', sortable: true, filter: true }
-];
+    { field: 'hostelId', headerName: 'HostelId', sortable: true, filter: true },
+    { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: true },
+    { field: 'hostelAddress', headerName: 'HostelAddress', sortable: true, filter: true },
+    { field: 'noofRooms', headerName: 'NoofRooms', sortable: true, filter: true },
+    { field: 'rent', headerName: 'Rent', sortable: true, filter: true },
+    { field: 'discountPer', headerName: 'DiscountPer', sortable: true, filter: true }
+  ];
   public defaultColDef = {
-    sortable: true, 
+    sortable: true,
     filter: true,
-    resizable: true 
+    resizable: true
   };
-  constructor(private dashService: DashboardService) { 
+  constructor(private dashService: DashboardService) {
   }
 
   ngOnInit(): void {
-    this.GetUserDetails(2);
+    const userId = localStorage.getItem('userId');
+  
+    if (userId !== null) {
+      const numericUserId = parseInt(userId, 10);
+      this.GetUserDetails(numericUserId);
+    }
   }
 
-  GetUserDetails(HostelId: number){
-    this.dashService.GetUserDetails(HostelId).subscribe((res: any)=>{
-        this.rowData = res.content;
+  GetUserDetails(UserId: number) {
+    this.dashService.GetUserDetails(UserId).subscribe((res: any) => {
+      this.rowData = res.content.hostelDetails;
+      this.TotalUsers = res.content.totalUser;
+      this.PendingUserRent = res.content.pendingPaymentCount ?? 0;
+      this.TotalIncome = res.content.totalIncome;
+      this.MinAmt = res.content.minamt;
+      this.NoOfHostels = res.content.noOfHostels;
     });
   }
-
-  
 }

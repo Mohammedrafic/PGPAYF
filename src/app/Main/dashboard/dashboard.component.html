@@ -4,14 +4,14 @@
             <div class="b-inside">
                 <div>
                     <label for="">Total users</label>
-                    <h1>2345</h1>
+                    <h1>{{TotalUsers}}</h1>
                 </div>
                 <div>
                     <img width="60px" height="60px" src="assets/images/icons/multiple-users-silhouette.png" alt="">
                 </div>
             </div>
             <div class="b-bottom">
-                <h5 class="txt-danger">{{PendingUserRent}}</h5>
+                <h5 class="txt-danger route" [routerLink]="['/main/request']">{{PendingUserRent}}</h5>
                 <h5>users need to pay rent</h5>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <div class="b-inside">
                 <div>
                     <label for="">No of Hostels</label>
-                    <h1>7</h1>
+                    <h1>{{NoOfHostels}}</h1>
                 </div>
                 <div>
                     <img src="assets/images/icons/favicon.ico" alt="">
@@ -35,23 +35,23 @@
         <div class="blockb">
             <div class="b-inside">
                 <div>
-                    <label for="">Rent</label>
-                    <h1>&#8377;8000</h1>
+                    <label for="">Total Income</label>
+                    <h1>&#8377;{{TotalIncome}}</h1>
                 </div>
                 <div>
                     <img width="60px" height="60px" src="assets\images\icons\rupee-sign.png" alt="">
                 </div>
             </div>
             <div class="b-bottom">
-                <h5>3 sharing only for</h5>
-                <h5 class="txt-danger">&#8377;7000</h5>
+                <h5>Minimum Rent</h5>
+                <h5 class="txt-danger">&#8377;{{MinAmt}}</h5>
             </div>
         </div>
     </div>
     <div class="top">
         <div class="blocka">
             <div class="header">
-                <h1>Hostel Details</h1>
+                <h3>Hostel Details</h3>
             </div>
             <div class="grid">
                 <ag-grid-angular

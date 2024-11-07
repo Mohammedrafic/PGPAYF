@@ -34,8 +34,7 @@ export class HostalsDetailsComponent implements OnInit {
   }
 
   Nextpage(){
-    if (true) {
-      debugger;
+    if (this.HostelDetailsForm.valid) {
       this.HostelDetails = this.HostelDetailsForm.value;
       if(this.HostelDetails){
         this.HostelDetails.HostelPhotos = this.selectedFiles;

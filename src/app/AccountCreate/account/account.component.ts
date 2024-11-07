@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
     UserName: new FormControl('',Validators.required),
     Email: new FormControl('',Validators.required), 
     Password: new FormControl('',Validators.required)
-  })
+  });
 
   constructor(private toastr: ToastrService) { }
 
@@ -26,7 +26,7 @@ export class AccountComponent implements OnInit {
   }
 
   Save(){
-    if (true) {
+    if (this.AccountForm.valid) {
       this.NextPage.emit({ No: this.PageNo.Frontpage, Key: 'Account'});
       this.ChildData.emit(this.AccountForm);
     } else {

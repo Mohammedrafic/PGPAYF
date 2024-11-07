@@ -5,10 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardService {
+export class RequestService {
+
   constructor(private http: HttpClient) { }
 
-  GetUserDetails(UserId: number){
-    return this.http.get<any>(`${environment.BaseUrl}GetUserDetails?UserId=${UserId}`);
+  GetHostelRequest(UserID: number){
+    return this.http.get<any>(`${environment.BaseUrl}GetHostelRequest/${UserID}`);
   }
 }
