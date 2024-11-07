@@ -8,9 +8,59 @@ import { RequestService } from './service/request.service';
   styleUrls: ['./request.component.scss']
 })
 export class RequestComponent implements OnInit {
+  selectedTopIndex: number = 0;
+  topToggle: any[] = ['Booking Request', 'Payment Request']
+  label: string = this.topToggle[0];
+  PaymentcolumnDefs: any = [
+    { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'userName', headerName: 'UserName', sortable: true, filter: 'agTextColumnFilter' },
+    {
+      field: 'paymentStatus',
+      headerName: 'PaymentStatus',
+      sortable: true,
+      filter: 'agTextColumnFilter',
+      cellRenderer: (params: any) => {
+        const status = params.value;
+        let backgroundColor = '';
+        let textColor = 'white';
 
-  columnDefs: any = [
-    { field: 'requestId', headerName: 'RequestId', sortable: true, filter: 'agNumberColumnFilter' },
+        switch (status) {
+          case 'Completed':
+            backgroundColor = 'green';
+            break;
+          case 'Pending':
+            backgroundColor = 'red';
+            break;
+          default:
+            backgroundColor = 'gray';
+            break;
+        }
+
+        return `<span style="background-color: ${backgroundColor}; color: ${textColor}; 
+                    padding: 5px 10px 5px 10px; border-radius: 15px; cursor: pointer;">
+                    ${status}
+                </span>`;
+      }
+    },
+    { field: 'amount', headerName: 'Amount', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'paymentMethod', headerName: 'PaymentMethod', sortable: true, filter: 'agTextColumnFilter' },
+    { field: 'transactionId', headerName: 'TransactionId', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'advanceAmount', headerName: 'AdvanceAmount', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'remainingAmount', headerName: 'RemainingAmount', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'remarks', headerName: 'Remarks', sortable: true, filter: 'agTextColumnFilter' },
+    { 
+      field: 'updatedAt', 
+      headerName: 'Updatedat', 
+      sortable: true, 
+      filter: 'agDateColumnFilter',
+      cellRenderer: (params: any) => {
+        return params.value.split('T')[0];
+      } 
+    },
+
+  ];
+  BookingcolumnDefs: any = [
+    { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: 'agNumberColumnFilter' },
     {
       field: 'status',
       headerName: 'Status',
@@ -20,7 +70,7 @@ export class RequestComponent implements OnInit {
         const status = params.value;
         let backgroundColor = '';
         let textColor = 'white';
-  
+
         switch (status) {
           case 'Completed':
             backgroundColor = 'green';
@@ -38,7 +88,7 @@ export class RequestComponent implements OnInit {
             backgroundColor = 'gray';
             break;
         }
-  
+
         return `<span style="background-color: ${backgroundColor}; color: ${textColor}; 
                     padding: 5px 10px 5px 10px; border-radius: 15px; cursor: pointer;">
                     ${status}
@@ -71,7 +121,7 @@ export class RequestComponent implements OnInit {
       cellRenderer: (params: any) => {
         const requestType = params.value;
         let color = '';
-  
+
         switch (requestType) {
           case 'Booking':
             color = 'green';
@@ -103,8 +153,8 @@ export class RequestComponent implements OnInit {
       }
     }
   ];
-  
-  
+
+
 
   rowData: any = [];
 
@@ -128,6 +178,11 @@ export class RequestComponent implements OnInit {
     this.reqService.GetHostelRequest(UserID).subscribe((res: any) => {
       this.rowData = res.content;
     });
+  }
+
+  onTopClick(index: number) {
+    this.selectedTopIndex = index;
+    this.label = index == 0 ? this.topToggle[index] : this.topToggle[index]
   }
 
 }
