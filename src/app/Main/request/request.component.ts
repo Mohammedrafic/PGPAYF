@@ -56,8 +56,7 @@ export class RequestComponent implements OnInit {
       cellRenderer: (params: any) => {
         return params.value.split('T')[0];
       } 
-    },
-
+    }
   ];
   BookingcolumnDefs: any = [
     { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: 'agNumberColumnFilter' },
@@ -95,12 +94,11 @@ export class RequestComponent implements OnInit {
                 </span>`;
       },
       editable: (params: any) => {
-        // Disable editing if status is 'Completed'
         return params.data.status !== 'Completed';
       },
-      cellEditor: 'agSelectCellEditor',  // Use a dropdown cell editor
+      cellEditor: 'agSelectCellEditor',
       cellEditorParams: {
-        values: ['Completed', 'Pending', 'Resolved', 'New', 'Cancelled', 'InProgress']  // List of status options
+        values: ['Completed', 'Pending', 'Resolved', 'New', 'Cancelled', 'InProgress']
       }
     },
     { field: 'userName', headerName: 'UserName', sortable: true, filter: 'agTextColumnFilter' },
@@ -156,13 +154,10 @@ export class RequestComponent implements OnInit {
 
 
 
-  rowData: any = [];
+  DetailsrowData: any = [];
+  PaymentrowData: any = [];
 
-  gridOptions: any = {
-    // onFirstDataRendered: (params: any) => {
-    //   params.api.sizeColumnsToFit();
-    // }
-  };
+  gridOptions: any = {};
 
   constructor(private reqService: RequestService) { }
   ngOnInit(): void {
@@ -176,7 +171,8 @@ export class RequestComponent implements OnInit {
 
   GetHostelRequest(UserID: number) {
     this.reqService.GetHostelRequest(UserID).subscribe((res: any) => {
-      this.rowData = res.content;
+      this.DetailsrowData = res.content.details;
+      this.PaymentrowData = res.content.payment;
     });
   }
 
