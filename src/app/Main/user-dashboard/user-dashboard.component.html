@@ -1,27 +1,7 @@
 <div>
     <div class="top">
         <div class="blocka">
-            <div class="filter-container">
-                <div class="filter-body">
-                    <span>
-                        <h3>Hostel In chennai, Tamilnadu</h3>
-                    </span>
-                </div>
-                <div class="filter-body">
-                    <div class="sort-fil">
-                        <span><label for="">Sort By</label></span>
-                        <select class="sort-select" name="" id="">
-                            <option value="LowtoHigh">Low to High</option>
-                            <option value="HightoLow">High to Low</option>
-                            <option value="GuestRatings">Guest ratings</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="filter-body">
-                    <span><label for="">Filter</label></span>
-                </div>
-            </div>
-            <hr class="line">
+            <app-filters></app-filters>
             <div class="main-body" *ngFor="let data of HostelDetails">
                 <div class="left-bar">
                     <div class="img-panel">

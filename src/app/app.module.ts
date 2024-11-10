@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './Main/dashboard/dashboard.component';
@@ -23,6 +23,7 @@ import { SpinnerComponent } from './loader/spinner/spinner.component';
 import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
 import { HostelsComponent } from './Main/hostels/hostels.component';
 import { PDetailsComponent } from './pdetails/pdetails.component';
+import { FiltersComponent } from './Main/filters/filters.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { PDetailsComponent } from './pdetails/pdetails.component';
     SpinnerComponent,
     HostelsComponent,
     PDetailsComponent,
+    FiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { PDetailsComponent } from './pdetails/pdetails.component';
       progressBar: true 
     }),
     BrowserAnimationsModule,
-    AgGridModule
+    AgGridModule,
+    FormsModule
   ],
   providers: [
     {

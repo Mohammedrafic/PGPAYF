@@ -1,0 +1,40 @@
+<div class="filter-container">
+    <button *ngIf="!showFilters" class="filter-toggle-button" (click)="toggleFilters()">
+        Filter
+    </button>
+    
+    <div [class.open]="showFilters" class="filter-content">
+        <button class="close-button" (click)="toggleFilters()">✖</button>
+        <div class="filter-group">
+            <label for="search" class="filter-label">Search</label>
+            <input type="text" id="search" class="filter-input" placeholder="Search by name or area" [(ngModel)]="searchTerm" />
+        </div>
+        <div class="filter-group">
+            <label for="sort" class="filter-label">Sort By</label>
+            <select id="sort" class="filter-select" [(ngModel)]="sortOrder">
+                <option value="LowtoHigh">Price: Low to High</option>
+                <option value="HightoLow">Price: High to Low</option>
+                <option value="GuestRatings">Guest Ratings</option>
+                <option value="Nearby">Nearby</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label for="price-range" class="filter-label">Price Range</label>
+            <div class="range-container">
+                <input type="range" id="price-range" class="filter-range" min="1000" max="10000" step="100" [(ngModel)]="priceRange" />
+                <span class="price-display">₹{{ priceRange }}</span>
+            </div>
+        </div>
+        <div class="filter-group">
+            <label for="ratings" class="filter-label">Minimum Rating</label>
+            <select id="ratings" class="filter-select" [(ngModel)]="minRating">
+                <option value="1">1 Star</option>   
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+        </div>
+        <button class="apply-filters-button" (click)="applyFilters()">Apply Filters</button>
+    </div>
+</div>

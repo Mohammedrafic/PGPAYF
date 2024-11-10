@@ -9,7 +9,7 @@ import { RequestService } from './service/request.service';
 })
 export class RequestComponent implements OnInit {
   selectedTopIndex: number = 0;
-  topToggle: any[] = ['Booking Request', 'Payment Request']
+  topToggle: any[] = ['Booking Request', 'Payment Details']
   label: string = this.topToggle[0];
   PaymentcolumnDefs: any = [
     { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: 'agNumberColumnFilter' },

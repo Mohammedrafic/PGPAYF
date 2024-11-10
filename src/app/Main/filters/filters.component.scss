@@ -1,0 +1,138 @@
+.filter-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    position: fixed; // Keep the filter container in a fixed position
+    right: 1rem;     // Distance from the right of the viewport
+    z-index: 200;    // Higher z-index to keep it above other elements
+
+    .filter-toggle-button {
+        padding: 5px 15px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    .filter-content {
+        position: fixed;
+        top: 0;
+        right: -300px; // Start off-screen to the right
+        height: 100%;
+        width: 300px;
+        padding: 1.5rem;
+        background-color: #ffffff;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 100;
+        transition: right 0.4s ease, opacity 0.4s ease;
+        opacity: 0;
+        visibility: hidden;
+        
+        &.open {
+            right: 0;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .close-button {
+            align-self: flex-end;
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+
+            &:hover {
+                color: #007bff;
+            }
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .filter-label {
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: #555;
+            }
+
+            .filter-input,
+            .filter-select,
+            .filter-range {
+                padding: 0.5rem;
+                font-size: 0.95rem;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    border-color: #007bff;
+                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+                    outline: none;
+                }
+            }
+
+            .range-container {
+                position: relative;
+
+                .filter-range {
+                    -webkit-appearance: none;
+                    height: 5px;
+                    background: #ddd;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+                        background: #007bff;
+                    }
+                }
+
+                .price-display {
+                    position: absolute;
+                    top: -20px;
+                    right: 0;
+                    font-size: 0.9rem;
+                    color: #333;
+                    font-weight: bold;
+                    background-color: #fff;
+                    padding: 0.2rem 0.5rem;
+                    border-radius: 4px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+
+        .apply-filters-button {
+            padding: 5px 15px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #218838;
+            }
+        }
+    }
+}
