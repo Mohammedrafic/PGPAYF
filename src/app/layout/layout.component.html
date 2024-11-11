@@ -1,36 +1,6 @@
 <div class="app-wrapper">
     <!-- Left Navbar -->
-    <div class="navbar-main" [ngClass]="{ 'navbar-collapsed': isCollapsed }">
-
-        <!-- Logo at the top of the navbar -->
-        <div class="navbar-logo">
-            <img src="assets/images/PGlogo3.png" alt="Logo">  
-        </div>
-
-        <!-- Navbar Items -->
-        <ul>
-            <li *ngFor="let item of navbarItems">
-                <div (click)="toggleSubList(item)">
-                    <div class="nav-details">
-                        <img class="nav-img" width="40px" height="40px" src="{{item.imgPath}}" alt="">
-                        <span class="nav-text" (click)="Navigate(item.path)">{{ item.name }}</span>
-                        <span *ngIf="item.subMenuItems.length > 0" class="arrow">&#9660;</span>
-                    </div>
-                </div>
-                <ul *ngIf="item.isOpen && item.subMenuItems">
-                    <li *ngFor="let subItem of item.subMenuItems">
-                        <div (click)="Navigate(subItem.path)">
-                            <div class="nav-details">
-                                <img class="nav-img" width="40px" height="40px" src="{{subItem.imgPath}}" alt="">
-                                <span class="nav-text" (click)="Navigate(subItem.path)">{{ subItem.name }}</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
+    <app-leftnav></app-leftnav>
     <!-- Main Content Area -->
     <div class="main-content">
         <router-outlet></router-outlet>

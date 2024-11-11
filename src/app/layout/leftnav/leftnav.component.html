@@ -1,0 +1,46 @@
+<div class="navbar-main" [ngClass]="{ 'navbar-collapsed': isCollapsed }">
+    <!-- Toggle Collapse Button -->
+    <div class="navbar-toggle" (click)="toggleCollapse()">
+        <img class="toggle" src="assets/images/icons/icons8-merge-vertical-64.png" alt="Toggle">
+    </div>
+
+    <!-- Logo -->
+    <div class="navbar-logo" *ngIf="!isCollapsed">
+        <img src="assets/images/PGlogo3.png" alt="Logo">
+    </div>
+
+    <!-- Navbar Items -->
+    <ul class="navbar-list">
+        <li *ngFor="let item of navbarItems" class="navbar-item"
+            (mouseenter)="isCollapsed ? showTooltip(item) : null" 
+            (mouseleave)="isCollapsed ? hideTooltip() : null">
+            <div class="nav-main" (click)="toggleSubList(item)">
+                <img class="nav-img" (click)="isCollapsed ? toggleCollapse() : null"  [src]="item.imgPath" alt="Icon">
+                <span class="nav-text" *ngIf="!isCollapsed" (click)="Navigate(item.path)">{{ item.name }}</span>
+                <span *ngIf="item.subMenuItems.length > 0 && !isCollapsed" class="arrow">&#9660;</span>
+            </div>
+
+            <!-- Submenu Tooltip for collapsed mode -->
+            <div class="tooltip" *ngIf="isCollapsed && hoveredItem === item">
+                <ul class="sub-menu-tooltip">
+                    <li *ngFor="let subItem of item.subMenuItems" (click)="Navigate(subItem.path)">
+                        <img class="tooltip-img" [src]="subItem.imgPath" alt="Sub-Icon">
+                        <span class="tooltip-text">{{ subItem.name }}</span>
+                    </li>
+                    <!-- Display the name when no sub-menu items are available -->
+                    <li *ngIf="item.subMenuItems.length === 0">
+                        <span class="tooltip-text">{{ item.name }}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sub-menu for expanded mode -->
+            <ul class="sub-menu" *ngIf="!isCollapsed && item.isOpen && item.subMenuItems.length > 0">
+                <li *ngFor="let subItem of item.subMenuItems" (click)="Navigate(subItem.path)">
+                    <img class="sub-img" [src]="subItem.imgPath" alt="Sub-Icon">
+                    <span class="sub-text">{{ subItem.name }}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

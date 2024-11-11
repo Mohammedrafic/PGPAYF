@@ -28,6 +28,16 @@
                         </div>
                     </div>
                     <div class="right-bar-middle bar">
+                        <div class="fecilities-main">
+                            <ul class="fecilities">
+                                <li *ngFor="let fac of data.hostelFacility">
+                                    <span class="fac-icon">
+                                        <img class="fac-img" src="{{fac.imgpath}}" alt="">
+                                        <h6>{{fac.name}}</h6>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="ratings">
                             <div class="success-rate">
                                 <span>{{data.ratings.starrate}}<span>&#9733;</span></span>
@@ -42,16 +52,6 @@
                                     <h6>{{data.ratings.status}}</h6>
                                 </span>
                             </div>
-                        </div>
-                        <div class="fecilities-main">
-                            <ul class="fecilities">
-                                <li *ngFor="let fac of data.hostelFacility">
-                                    <span class="fac-icon">
-                                        <img class="fac-img" src="{{fac.imgpath}}" alt="">
-                                        <h6>{{fac.name}}</h6>
-                                    </span>
-                                </li>
-                            </ul>
                         </div>
                         <div class="">
 

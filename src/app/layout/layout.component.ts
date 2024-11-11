@@ -9,32 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
-  constructor(private route: Router, private service: LayoutService, private toastr: ToastrService) { }
+  constructor() { }
   navbarItems: any;
   ngOnInit(): void {
-    let userRole = localStorage.getItem('userRole');
-    this.service.GetLayoutData(userRole).subscribe((res: any) => {
-      if (res.isSuccess) {
-        this.navbarItems = res.content;
-      } else {
-        this.toastr.error(res.message, 'Error');
-      }
-    });
   }
 
-  isCollapsed = false;
-
-  toggleNavbar() {
-    this.isCollapsed = !this.isCollapsed;
-  }
-
-  toggleSubList(item: any) {
-    item.isOpen = !item.isOpen;
-  }
-
-  Navigate(path: any) {
-    if (path != undefined) {
-      this.route.navigate([path]);
-    }
-  }
 }

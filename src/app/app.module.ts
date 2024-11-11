@@ -24,6 +24,7 @@ import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
 import { HostelsComponent } from './Main/hostels/hostels.component';
 import { PDetailsComponent } from './pdetails/pdetails.component';
 import { FiltersComponent } from './Main/filters/filters.component';
+import { LeftnavComponent } from './layout/leftnav/leftnav.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { FiltersComponent } from './Main/filters/filters.component';
     HostelsComponent,
     PDetailsComponent,
     FiltersComponent,
+    LeftnavComponent,
   ],
   imports: [
     BrowserModule,

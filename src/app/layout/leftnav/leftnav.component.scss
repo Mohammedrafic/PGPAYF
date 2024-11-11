@@ -1,0 +1,169 @@
+.navbar-main {
+    width: 250px;
+    height: 100%;
+    background-color: #1f2a44;
+    color: #fff;
+    position: relative;
+    transition: width 0.3s ease, background-color 0.3s;
+
+    &.navbar-collapsed {
+        width: 80px;
+
+        .nav-text {
+            display: none;
+        }
+
+        .tooltip {
+            display: block;
+        }
+    }
+
+    .navbar-toggle {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        padding: 10px 0;
+
+        img {
+            width: 30px;
+            height: auto;
+        }
+    }
+    .toggle{
+        filter: brightness(0) invert(1);
+    }
+
+    .navbar-logo {
+        text-align: center;
+        padding: 20px;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .navbar-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .navbar-item {
+            position: relative;
+            overflow: hidden;
+
+            .nav-main {
+                display: flex;
+                align-items: center;
+                padding: 12px 20px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+                position: relative;
+
+                &:hover {
+                    background-color: #293b5f;
+                }
+
+                .nav-img {
+                    width: 28px;
+                    height: 28px;
+                    margin-right: 15px;
+                    transition: transform 0.3s;
+                    filter: brightness(0) invert(1);
+                }
+
+                .nav-text {
+                    font-size: 1rem;
+                    color: #f5f5f5;
+                    transition: color 0.3s;
+                }
+
+                .arrow {
+                    margin-left: auto;
+                    font-size: 0.8rem;
+                    color: #ccc;
+                }
+            }
+
+            .tooltip {
+                position: absolute;
+                left: 100%;   // Positioned to the right of the navbar item
+                top: 0;
+                background-color: #444;
+                padding: 10px;
+                border-radius: 5px;
+                width: 200px;
+                display: none;  // Hidden by default
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 10;
+                transition: opacity 0.3s ease;  // Smooth tooltip visibility change
+
+                .sub-menu-tooltip {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                        padding: 8px 10px;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.1);
+                        }
+
+                        .tooltip-img {
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 10px;
+                        }
+
+                        .tooltip-text {
+                            font-size: 0.9rem;
+                            color: #ddd;
+                        }
+                    }
+                }
+            }
+
+            // Show tooltip when hovering over navbar item
+            &:hover .tooltip {
+                display: block;  // Show the tooltip on hover
+            }
+
+            .sub-menu {
+                background-color: #2a3a5f;
+                border-left: 2px solid #00aaff;
+                margin-top: 5px;
+                padding-left: 15px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    padding: 8px 10px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.1);
+                    }
+
+                    .sub-img {
+                        width: 22px;
+                        height: 22px;
+                        margin-right: 10px;
+                    }
+
+                    .sub-text {
+                        font-size: 0.9rem;
+                        color: #ddd;
+                    }
+                }
+            }
+        }
+    }
+}
