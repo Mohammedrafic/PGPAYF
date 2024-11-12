@@ -1,0 +1,110 @@
+<div class="main-container">
+    <form [formGroup]="HostelDetailsForm" (ngSubmit)="Submit()" class="hostel-details-form">
+        <h2 class="form-title">Hostel Details</h2>
+        
+        <div class="form-group">
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="text"
+                        class="form-input"
+                        formControlName="HostelName"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Hostel Name</span>
+                </label>
+            </div>
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="text"
+                        class="form-input"
+                        formControlName="HostalAddress"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Hostel Address</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="number"
+                        class="form-input"
+                        formControlName="NoOfRooms"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Number of Rooms</span>
+                </label>
+            </div>
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="number"
+                        class="form-input"
+                        formControlName="minrent"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Minimum Rent</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="number"
+                        class="form-input"
+                        formControlName="maxrent"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Maximum Rent</span>
+                </label>
+            </div>
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="tel"
+                        class="form-input"
+                        formControlName="contactno"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Contact Number</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="text"
+                        class="form-input"
+                        formControlName="ownerName"
+                        placeholder=" "
+                    />
+                    <span class="label-text">Owner Name</span>
+                </label>
+            </div>
+            <div class="form-field">
+                <label class="form-label">
+                    <input
+                        type="file"
+                        class="form-input"
+                        formControlName="HostelPhotos"
+                        (change)="onFileSelected($event)"
+                        multiple
+                    />
+                    <span class="label-text">Hostel Photos</span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="submit-button">Submit</button>
+        </div>
+    </form>
+</div>

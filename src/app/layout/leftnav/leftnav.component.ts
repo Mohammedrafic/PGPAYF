@@ -36,7 +36,7 @@ export class LeftnavComponent implements OnInit {
   toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;
     if (!this.isCollapsed) {
-      this.hoveredItem = null;  // Clear hovered item if expanding navbar
+      this.hoveredItem = null;
     }
   }
 

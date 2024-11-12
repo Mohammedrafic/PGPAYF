@@ -8,6 +8,7 @@ import { CreateAccComponent } from './AccountCreate/create-acc.component';
 import { RoleSelectionComponent } from './role-selection/role-selection.component';
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 import { HostelsComponent } from './Main/hostels/hostels.component';
+import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'hostels',
         component: HostelsComponent
+      }, 
+      {
+        path: 'add-hostels',
+        component: AddHostelsComponent
       }
     ],
   },

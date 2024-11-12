@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './service/dashboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,7 +28,7 @@ export class DashboardComponent implements OnInit {
     filter: true,
     resizable: true
   };
-  constructor(private dashService: DashboardService) {
+  constructor(private dashService: DashboardService, private route: Router) {
   }
 
   ngOnInit(): void {
@@ -48,5 +49,9 @@ export class DashboardComponent implements OnInit {
       this.MinAmt = res.content.minamt;
       this.NoOfHostels = res.content.noOfHostels;
     });
+  }
+
+  Navigate(){
+    this.route.navigate(['main','add-hostels']);
   }
 }

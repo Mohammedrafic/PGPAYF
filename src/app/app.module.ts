@@ -25,6 +25,7 @@ import { HostelsComponent } from './Main/hostels/hostels.component';
 import { PDetailsComponent } from './pdetails/pdetails.component';
 import { FiltersComponent } from './Main/filters/filters.component';
 import { LeftnavComponent } from './layout/leftnav/leftnav.component';
+import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { LeftnavComponent } from './layout/leftnav/leftnav.component';
     PDetailsComponent,
     FiltersComponent,
     LeftnavComponent,
+    AddHostelsComponent,
   ],
   imports: [
     BrowserModule,

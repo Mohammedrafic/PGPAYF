@@ -52,8 +52,7 @@
 
         .navbar-item {
             position: relative;
-            // overflow: hidden;
-
+            
             .nav-main {
                 display: flex;
                 align-items: center;
@@ -87,10 +86,9 @@
                 }
             }
 
-            // Tooltip styling for collapsed state
             .tooltip {
                 position: absolute;
-                left: 100%; // Positions tooltip to the right of the navbar item
+                left: 100%;
                 top: 0;
                 background-color: #1f2a44;
                 padding: 10px;
@@ -102,10 +100,9 @@
                 opacity: 1;
 
 
-                // Display tooltip only when navbar is collapsed and item is hovered
                 .navbar-collapsed & {
                     display: block;
-                    opacity: 1; // Initially hidden
+                    opacity: 1;
                     visibility: visible;
                 }
 
@@ -122,7 +119,7 @@
                         transition: background-color 0.3s;
 
                         &:hover {
-                            background-color: rgba(255, 255, 255, 0.1);
+                            background-color: #293b5f;
                         }
 
                         .tooltip-img {
@@ -139,12 +136,6 @@
                     }
                 }
             }
-
-            // Hover effect for tooltip in collapsed mode
-            // &:hover .tooltip {
-            //     opacity: 0;
-            //     visibility: visible;
-            // }
 
             .sub-menu {
                 background-color: #2a3a5f;
