@@ -15,7 +15,7 @@
             (mouseenter)="isCollapsed ? showTooltip(item) : null" 
             (mouseleave)="isCollapsed ? hideTooltip() : null">
             <div class="nav-main" (click)="toggleSubList(item)">
-                <img class="nav-img" (click)="isCollapsed ? toggleCollapse() : null"  [src]="item.imgPath" alt="Icon">
+                <img class="nav-img" [src]="item.imgPath" alt="Icon">
                 <span class="nav-text" *ngIf="!isCollapsed" (click)="Navigate(item.path)">{{ item.name }}</span>
                 <span *ngIf="item.subMenuItems.length > 0 && !isCollapsed" class="arrow">&#9660;</span>
             </div>
@@ -28,7 +28,7 @@
                         <span class="tooltip-text">{{ subItem.name }}</span>
                     </li>
                     <!-- Display the name when no sub-menu items are available -->
-                    <li *ngIf="item.subMenuItems.length === 0">
+                    <li *ngIf="item.subMenuItems.length === 0" (click)="Navigate(item.path)">
                         <span class="tooltip-text">{{ item.name }}</span>
                     </li>
                 </ul>

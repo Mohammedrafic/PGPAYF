@@ -12,6 +12,7 @@ export class LeftnavComponent implements OnInit {
   navbarItems: any;
   isCollapsed = false;
   hoveredItem: any;
+  isHover: boolean = false;
 
   constructor(
     private route: Router, 
