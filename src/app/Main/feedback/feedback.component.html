@@ -1,0 +1,51 @@
+<div class="feedback-container">
+    <h1>Feedback Form</h1>
+    <p>We value your feedback! Please let us know how we can improve.</p>
+  
+    <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" placeholder="Your Name" />
+        <small *ngIf="feedbackForm.get('name')?.invalid && feedbackForm.get('name')?.touched">
+          Name is required.
+        </small>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" placeholder="Your Email" />
+        <small *ngIf="feedbackForm.get('email')?.invalid && feedbackForm.get('email')?.touched">
+          Please enter a valid email.
+        </small>
+      </div>
+  
+      <div class="form-group">
+        <label for="feedbackType">Feedback Type</label>
+        <select id="feedbackType" formControlName="feedbackType">
+          <option value="" disabled selected>Select Type</option>
+          <option *ngFor="let type of feedbackTypes" [value]="type">{{ type }}</option>
+        </select>
+        <small *ngIf="feedbackForm.get('feedbackType')?.invalid && feedbackForm.get('feedbackType')?.touched">
+          Please select a feedback type.
+        </small>
+      </div>
+  
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input id="rating" type="range" formControlName="rating" min="1" max="5" />
+        <span>{{ feedbackForm.get('rating')?.value }} / 5</span>
+      </div>
+  
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea id="comments" formControlName="comments" rows="4" placeholder="Your Comments"></textarea>
+      </div>
+  
+      <button type="submit" [disabled]="feedbackForm.invalid">Submit Feedback</button>
+  
+      <div *ngIf="submitted" class="thank-you-message">
+        Thank you for your feedback!
+      </div>
+    </form>
+  </div>
+  

@@ -11,4 +11,7 @@ export class UserDashbooardService {
   GetAllHostelDetails(){
     return this.http.get<any>(`${environment.BaseUrl}GetAllHostelDetails`);
   }
+  GetHostelDetailsById(UserID: number){
+    return this.http.get<any>(`${environment.BaseUrl}GetHostelDetailsById?UserID=${UserID}`);
+  }
 }

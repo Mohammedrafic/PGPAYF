@@ -9,6 +9,8 @@ import { RoleSelectionComponent } from './role-selection/role-selection.componen
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 import { HostelsComponent } from './Main/hostels/hostels.component';
 import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
+import { ContactComponent } from './Main/contact/contact.component';
+import { FeedbackComponent } from './Main/feedback/feedback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -36,6 +38,14 @@ const routes: Routes = [
       {
         path: 'add-hostels',
         component: AddHostelsComponent
+      }, 
+      {
+        path: 'contact',
+        component: ContactComponent
+      }, 
+      {
+        path: 'feedback',
+        component: FeedbackComponent
       }
     ],
   },
@@ -46,6 +56,10 @@ const routes: Routes = [
   {
     path: 'createacc/:id',
     component: CreateAccComponent
+  }, 
+  {
+    path: 'contact',
+    component: ContactComponent
   }
 ];
 

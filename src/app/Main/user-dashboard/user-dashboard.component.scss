@@ -25,7 +25,7 @@
 }
 
 .line {
-  height: 2px; 
+  height: 2px;
   width: 97%;
   background-color: #333;
   border: none;
@@ -37,7 +37,7 @@
   justify-content: center;
   gap: 15px;
   align-items: center;
-} 
+}
 
 .sort-select {
   width: 100%;
@@ -51,7 +51,7 @@
   justify-content: flex-start;
   flex-direction: row;
   width: 100%;
-} 
+}
 
 .left-bar {
   width: 50%;
@@ -70,9 +70,9 @@
 .img-panel {
   width: 460px;
   height: 280px;
-  background-size: cover;       
-  background-position: center;  
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .list {
@@ -87,9 +87,9 @@
 }
 
 img {
-  width: 100%;         
-  height: 100%;        
-  object-fit: cover;   
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .bar {
@@ -98,17 +98,17 @@ img {
 }
 
 .ratings {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .success-rate {
-    border: 2px;
-    background-color: #52b520;
-    color: white;
-    padding: 5px;
-    border-radius: 10px;
+  border: 2px;
+  background-color: #52b520;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 ul.fecilities {
@@ -118,13 +118,13 @@ ul.fecilities {
   flex-wrap: wrap;
 }
 .fecilities-main {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .head-dtl {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .right-bar-footer {
@@ -144,9 +144,9 @@ ul.fecilities {
 }
 
 .currency {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .footer-btm {
@@ -157,61 +157,78 @@ ul.fecilities {
 }
 
 .offer-price {
-    text-decoration: line-through;
-    font-size: 16px;
-    color: #6d787d;
+  text-decoration: line-through;
+  font-size: 16px;
+  color: #6d787d;
 }
 
 .offer {
-    font-size: 14px;
-    font-weight: 600;
-    color: #f5a623;
-    line-height: 25px;
-    min-width: 76px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f5a623;
+  line-height: 25px;
+  min-width: 76px;
 }
 .view-dtl {
-    padding: 7px;
-    border-radius: 10px;
-    width: fit-content;
-    font-size: larger;
-    background-color: #00ff00;
-    cursor: pointer;
+  padding: 7px;
+  border-radius: 10px;
+  width: fit-content;
+  font-size: larger;
+  background-color: #00ff00;
+  cursor: pointer;
 }
 
 .right-bar-middle {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .bk {
-    padding: 7px;
-    border-radius: 10px;
-    background-color: red;
-    color: white;
-    width: fit-content;
-    font-size: larger;
-    cursor: pointer;
+  padding: 7px;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  width: fit-content;
+  font-size: larger;
+  cursor: pointer;
 }
 
 .fac-icon {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .fac-img {
-    width: 100%;
-    height: 100%;
-    max-width: 35px;
+  width: 100%;
+  height: 100%;
+  max-width: 35px;
 }
 
-.off-per{
+.off-per {
   min-width: 75px;
 }
 
+.head {
+  padding: 16px;
+  position: fixed;
+  width: 85%;
+  background: #f9fafc;
+}
+
+.form-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+}
+
+.main-cont {
+  margin-top: 50px;
+}
+
 @media screen and (max-width: 1300px) {
-    .main-body{
-        flex-direction: column;
-    }
+  .main-body {
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,46 @@
+<div class="contact-container">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, feel free to reach out to us.</p>
+  
+    <div class="contact-wrapper">
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?..."
+          width="50%"
+          height="50%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
+      </div>
+  
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" formControlName="name" type="text" placeholder="Your Name" />
+          <small *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+            Name is required.
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email" placeholder="Your Email" />
+          <small *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+            Please enter a valid email.
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" formControlName="message" rows="4" placeholder="Your Message"></textarea>
+          <small *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+            Message is required.
+          </small>
+        </div>
+  
+        <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+      </form>
+    </div>
+  </div>
+  

@@ -26,6 +26,8 @@ import { PDetailsComponent } from './pdetails/pdetails.component';
 import { FiltersComponent } from './Main/filters/filters.component';
 import { LeftnavComponent } from './layout/leftnav/leftnav.component';
 import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
+import { ContactComponent } from './Main/contact/contact.component';
+import { FeedbackComponent } from './Main/feedback/feedback.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
     FiltersComponent,
     LeftnavComponent,
     AddHostelsComponent,
+    ContactComponent,
+    FeedbackComponent,
   ],
   imports: [
     BrowserModule,
