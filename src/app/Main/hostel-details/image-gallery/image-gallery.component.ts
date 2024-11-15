@@ -7,9 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ImageGalleryComponent implements OnInit {
   @Input() images: string[] = [];
-  constructor() { }
+  NoImgMsg: boolean = false;
+  constructor() {}
 
   ngOnInit(): void {
+    if(this.images.length < 1){
+      this.NoImgMsg = true;
+    }
   }
 
+  viewAllPhotos(): void {
+    console.log('Redirect to All Photos View');
+    // Add logic to navigate to the all photos view or open a modal.
+  }
 }

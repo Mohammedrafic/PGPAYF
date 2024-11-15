@@ -7,4 +7,8 @@
         <app-amenities class="amenities" [amenities]="hotelDetails.amenities"></app-amenities>
         <app-location-map class="location-map" [location]="hotelDetails.location"></app-location-map>
     </div>
+    <div class="action-buttons">
+        <button mat-raised-button color="primary" (click)="bookNow()">Book</button>
+        <button mat-raised-button color="accent" (click)="viewDetails()">Details</button>
+    </div>
 </div>

@@ -1,6 +1,13 @@
-<div class="gallery">
-    <div *ngFor="let img of images" class="gallery-item">
-      <img [src]="img" alt="Hotel Image" />
+<div class="gallery-container">
+    <div class="gallery" *ngIf="!NoImgMsg && images.length > 0">
+        <div *ngFor="let img of images" class="gallery-item">
+            <img [src]="img" alt="Hotel Image" />
+        </div>
     </div>
-  </div>
-  
+    <div class="all-photos" *ngIf="!NoImgMsg && images.length > 0">
+        <button (click)="viewAllPhotos()">All Photos</button>
+    </div>
+    <div class="no-img" *ngIf="NoImgMsg">
+        <h2>No Images Available</h2>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HostelDetailsService } from './service/hostel-details.service';
 
 @Component({
   selector: 'app-hostel-details',
@@ -6,31 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hostel-details.component.scss']
 })
 export class HostelDetailsComponent implements OnInit {
-
-  constructor() { }
+  hotelDetails : any;
+  constructor(private service: HostelDetailsService) { }
 
   ngOnInit(): void {
+    this.service.GetHostelByID(1).subscribe((res: any) => {
+      if(res.content){
+        this.hotelDetails = res.content;
+        console.log(this.hotelDetails);
+      }
+    });
   }
-  hotelDetails = {
-    name: 'FabExpress Santhi Inn - Near Promenade Beach',
-    location: 'Plot No.57, Jawaharlal Nehru Street, Pondicherry, India',
-    rating: 8.6,
-    reviewCount: 1129,
-    reviewText: 'Good size room complete with sitting area for two. Even had a fridge. Staff were so helpful and helped us arrange our onward journey.',
-    reviewer: { name: 'David', country: 'Australia' },
-    amenities: [
-      { icon: 'restaurant', label: 'Restaurant' },
-      { icon: 'bathtub', label: 'Private bathroom' },
-      { icon: 'wifi', label: 'Free WiFi' },
-      { icon: 'ac_unit', label: 'Air conditioning' },
-      { icon: 'family_restroom', label: 'Family rooms' },
-      { icon: 'shower', label: 'Shower' },
-    ]
-  };
   images = [
     'assets/images/beds-hostel-affordable-housing-36997317.webp',
     'assets/images/beds-hostel-affordable-housing-36997317.webp',
     'assets/images/beds-hostel-affordable-housing-36997317.webp',
     'assets/images/beds-hostel-affordable-housing-36997317.webp'
   ];
+
+  bookNow(): void {
+    // Navigate to the booking page or trigger a booking service
+    console.log('Booking triggered for:', this.hotelDetails.name);
+  }
+
+  viewDetails(): void {
+    // Show additional details or navigate to the details page
+    console.log('Viewing details for:', this.hotelDetails.name);
+  }
 }
