@@ -1,0 +1,10 @@
+<div class="container">
+    <app-hotel-header [hotel]="hotelDetails"></app-hotel-header>
+    <app-image-gallery [images]="images"></app-image-gallery>
+    <app-review-section [review]="hotelDetails.reviewText" [reviewer]="hotelDetails.reviewer"
+        [rating]="hotelDetails.rating"></app-review-section>
+    <div class="Dtl-footer">
+        <app-amenities class="amenities" [amenities]="hotelDetails.amenities"></app-amenities>
+        <app-location-map class="location-map" [location]="hotelDetails.location"></app-location-map>
+    </div>
+</div>

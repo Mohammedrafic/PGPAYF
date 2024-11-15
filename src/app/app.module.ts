@@ -28,6 +28,8 @@ import { LeftnavComponent } from './layout/leftnav/leftnav.component';
 import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
 import { ContactComponent } from './Main/contact/contact.component';
 import { FeedbackComponent } from './Main/feedback/feedback.component';
+import { HostelModule } from './Main/hostel-details/hostel-details.module';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -51,7 +53,7 @@ import { FeedbackComponent } from './Main/feedback/feedback.component';
     LeftnavComponent,
     AddHostelsComponent,
     ContactComponent,
-    FeedbackComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,9 @@ import { FeedbackComponent } from './Main/feedback/feedback.component';
     }),
     BrowserAnimationsModule,
     AgGridModule,
-    FormsModule
+    FormsModule,
+    HostelModule,
+    CommonModule
   ],
   providers: [
     {

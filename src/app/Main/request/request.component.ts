@@ -42,12 +42,6 @@ export class RequestComponent implements OnInit {
                 </span>`;
       }
     },
-    { field: 'amount', headerName: 'Amount', sortable: true, filter: 'agNumberColumnFilter' },
-    { field: 'paymentMethod', headerName: 'PaymentMethod', sortable: true, filter: 'agTextColumnFilter' },
-    { field: 'transactionId', headerName: 'TransactionId', sortable: true, filter: 'agNumberColumnFilter' },
-    { field: 'advanceAmount', headerName: 'AdvanceAmount', sortable: true, filter: 'agNumberColumnFilter' },
-    { field: 'remainingAmount', headerName: 'RemainingAmount', sortable: true, filter: 'agNumberColumnFilter' },
-    { field: 'remarks', headerName: 'Remarks', sortable: true, filter: 'agTextColumnFilter' },
     { 
       field: 'updatedAt', 
       headerName: 'Updatedat', 
@@ -56,7 +50,13 @@ export class RequestComponent implements OnInit {
       cellRenderer: (params: any) => {
         return params.value.split('T')[0];
       } 
-    }
+    },
+    { field: 'amount', headerName: 'Amount', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'paymentMethod', headerName: 'PaymentMethod', sortable: true, filter: 'agTextColumnFilter' },
+    { field: 'transactionId', headerName: 'TransactionId', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'advanceAmount', headerName: 'AdvanceAmount', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'remainingAmount', headerName: 'RemainingAmount', sortable: true, filter: 'agNumberColumnFilter' },
+    { field: 'remarks', headerName: 'Remarks', sortable: true, filter: 'agTextColumnFilter' },
   ];
   BookingcolumnDefs: any = [
     { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: 'agNumberColumnFilter' },

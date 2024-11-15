@@ -11,6 +11,7 @@ import { HostelsComponent } from './Main/hostels/hostels.component';
 import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
 import { ContactComponent } from './Main/contact/contact.component';
 import { FeedbackComponent } from './Main/feedback/feedback.component';
+import { HostelDetailsComponent } from './Main/hostel-details/hostel-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -46,6 +47,11 @@ const routes: Routes = [
       {
         path: 'feedback',
         component: FeedbackComponent
+      }, 
+      {
+        path: 'HostelDetails/:id',
+        component: HostelDetailsComponent,
+        loadChildren: () => import('./Main/hostel-details/hostel-details.module').then(m => m.HostelModule)
       }
     ],
   },
