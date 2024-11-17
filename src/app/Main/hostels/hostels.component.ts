@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDashbooardService } from '../user-dashboard/Service/service.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-hostels',
@@ -11,7 +13,7 @@ export class HostelsComponent implements OnInit {
   imglist: any[] = [];
   HostelDetails: any[] = [];
 
-  constructor(private service: UserDashbooardService) {
+  constructor(private service: UserDashbooardService, private route: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -30,5 +32,13 @@ export class HostelsComponent implements OnInit {
         console.log(res.content);
       }
     });
+  }
+
+  Navigate(hostelId: number){
+    this.route.navigate(['main/HostelDetails', hostelId]);
+  }
+
+  Delete(hostelId: number){
+    this.toastr.info('Currently Delete option is unavaliable','Not Action!!!')
   }
 }

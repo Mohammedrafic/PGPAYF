@@ -78,8 +78,8 @@
                                 </div>
                             </div>
                             <div class="footer-btm">
-                                <button class="bk">Delete</button>
-                                <button class="view-dtl">Details</button>
+                                <button class="bk" (click)="Delete(data.hostelDetails.hostelId)">Delete</button>
+                                <button class="view-dtl" (click)="Navigate(data.hostelDetails.hostelId)">Details</button>
                             </div>
                         </div>
                     </div>

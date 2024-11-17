@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostelDetailsService } from './service/hostel-details.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hostel-details',
@@ -8,10 +9,12 @@ import { HostelDetailsService } from './service/hostel-details.service';
 })
 export class HostelDetailsComponent implements OnInit {
   hotelDetails : any;
-  constructor(private service: HostelDetailsService) { }
+  ParamsId: number = 0;
+  constructor(private service: HostelDetailsService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.service.GetHostelByID(1).subscribe((res: any) => {
+    this.Getparamsid();
+    this.service.GetHostelByID(this.ParamsId).subscribe((res: any) => {
       if(res.content){
         this.hotelDetails = res.content;
         console.log(this.hotelDetails);
@@ -26,12 +29,16 @@ export class HostelDetailsComponent implements OnInit {
   ];
 
   bookNow(): void {
-    // Navigate to the booking page or trigger a booking service
     console.log('Booking triggered for:', this.hotelDetails.name);
   }
 
-  viewDetails(): void {
-    // Show additional details or navigate to the details page
+  Backbtn(): void {
     console.log('Viewing details for:', this.hotelDetails.name);
+  }
+
+  Getparamsid(){
+    this.route.params.subscribe((params) => {
+      this.ParamsId = params['id'];
+    });
   }
 }

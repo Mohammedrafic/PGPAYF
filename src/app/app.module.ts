@@ -19,7 +19,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UserAccComponent } from './AccountCreate/user-acc/user-acc.component';
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { SpinnerComponent } from './loader/spinner/spinner.component';
 import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
 import { HostelsComponent } from './Main/hostels/hostels.component';
 import { PDetailsComponent } from './pdetails/pdetails.component';
@@ -30,6 +29,7 @@ import { ContactComponent } from './Main/contact/contact.component';
 import { FeedbackComponent } from './Main/feedback/feedback.component';
 import { HostelModule } from './Main/hostel-details/hostel-details.module';
 import { CommonModule } from '@angular/common';
+import { spinnerModule } from './loader/spinner.module';
 
 
 @NgModule({
@@ -46,7 +46,6 @@ import { CommonModule } from '@angular/common';
     AccountComponent,
     UserAccComponent,
     UserDashboardComponent,
-    SpinnerComponent,
     HostelsComponent,
     PDetailsComponent,
     FiltersComponent,
@@ -71,15 +70,10 @@ import { CommonModule } from '@angular/common';
     AgGridModule,
     FormsModule,
     HostelModule,
-    CommonModule
+    CommonModule,
+    spinnerModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
