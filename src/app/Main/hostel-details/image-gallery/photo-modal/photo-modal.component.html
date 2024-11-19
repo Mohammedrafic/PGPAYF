@@ -1,0 +1,26 @@
+<div class="modal-backdrop">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2>Photo Gallery</h2>
+      <button class="add-button" (click)="addNewPhoto()">+ Add Photo</button>
+      <img class="close-button" (click)="closeModal()" src="assets/images/icons/icons8-close-40.png" alt="">
+    </div>
+
+    <div class="modal-body">
+      <div class="photo-list">
+        <div
+          *ngFor="let photo of photos"
+          class="photo-item"
+          [class.selected]="photo === selectedPhoto"
+          (click)="onPhotoClick(photo)"
+        >
+          <img [src]="photo" alt="Photo" />
+        </div>
+      </div>
+
+      <div class="selected-photo" *ngIf="selectedPhoto">
+        <img [src]="selectedPhoto" alt="Selected Photo" />
+      </div>
+    </div>
+  </div>
+</div>

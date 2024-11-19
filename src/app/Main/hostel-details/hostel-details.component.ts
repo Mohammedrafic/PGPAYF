@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostelDetailsService } from './service/hostel-details.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-hostel-details',
@@ -10,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HostelDetailsComponent implements OnInit {
   hotelDetails : any;
   ParamsId: number = 0;
-  constructor(private service: HostelDetailsService,private route: ActivatedRoute) { }
+  constructor(private service: HostelDetailsService,private route: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
     this.Getparamsid();
@@ -22,8 +23,10 @@ export class HostelDetailsComponent implements OnInit {
     });
   }
   images = [
+    'assets/images/hostel-img-1.jpg',
     'assets/images/beds-hostel-affordable-housing-36997317.webp',
     'assets/images/beds-hostel-affordable-housing-36997317.webp',
+    'assets/images/hostel-image-2.jpg',
     'assets/images/beds-hostel-affordable-housing-36997317.webp',
     'assets/images/beds-hostel-affordable-housing-36997317.webp'
   ];
@@ -33,7 +36,7 @@ export class HostelDetailsComponent implements OnInit {
   }
 
   Backbtn(): void {
-    console.log('Viewing details for:', this.hotelDetails.name);
+    this.router.navigate(['/main/hostels'])
   }
 
   Getparamsid(){

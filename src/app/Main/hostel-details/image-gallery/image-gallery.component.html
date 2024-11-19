@@ -1,13 +1,24 @@
 <div class="gallery-container">
     <div class="gallery" *ngIf="!NoImgMsg && images.length > 0">
         <div *ngFor="let img of images" class="gallery-item">
-            <img [src]="img" alt="Hotel Image" />
+            <img class="imgs" [src]="img" alt="Hotel Image" />
         </div>
     </div>
+
     <div class="all-photos" *ngIf="!NoImgMsg && images.length > 0">
-        <button (click)="viewAllPhotos()">All Photos</button>
+        <button (click)="openModal()">View All Photos</button>
     </div>
+
     <div class="no-img" *ngIf="NoImgMsg">
         <h2>No Images Available</h2>
     </div>
 </div>
+
+<app-photo-modal
+  *ngIf="isModalOpen"
+  [photos]="photosList"
+  [selectedPhoto]="clickedPhoto"
+  (close)="closeModal()"
+  (selectPhoto)="selectPhoto($event)"
+  (addPhoto)="addPhoto($event)"
+></app-photo-modal>

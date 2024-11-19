@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -15,11 +14,10 @@ import { PersonalDetailsComponent } from './AccountCreate/personal-details/perso
 import { HostalsDetailsComponent } from './AccountCreate/hostals-details/hostals-details.component';
 import { RoleSelectionComponent } from './role-selection/role-selection.component';
 import { AccountComponent } from './AccountCreate/account/account.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UserAccComponent } from './AccountCreate/user-acc/user-acc.component';
 import { UserDashboardComponent } from './Main/user-dashboard/user-dashboard.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { LoaderInterceptor } from './loader/interceptors/loader.interceptor';
 import { HostelsComponent } from './Main/hostels/hostels.component';
 import { PDetailsComponent } from './pdetails/pdetails.component';
 import { FiltersComponent } from './Main/filters/filters.component';
