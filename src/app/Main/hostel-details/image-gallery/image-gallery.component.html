@@ -1,7 +1,7 @@
 <div class="gallery-container">
     <div class="gallery" *ngIf="!NoImgMsg && images.length > 0">
-        <div *ngFor="let img of images" class="gallery-item">
-            <img class="imgs" [src]="img" alt="Hotel Image" />
+        <div *ngFor="let img of images; let i=index;" class="gallery-item">
+            <img class="imgs" *ngIf="i < 4" [src]="img" alt="Hotel Image" />
         </div>
     </div>
 

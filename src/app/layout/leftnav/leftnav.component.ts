@@ -26,6 +26,7 @@ export class LeftnavComponent implements OnInit {
     this.service.GetLayoutData(userRole).subscribe((res: any) => {
       if (res.isSuccess) {
         this.navbarItems = res.content;
+        console.log(this.navbarItems)
         this.cdRef.detectChanges();
       } else {
         this.toastr.error(res.message, 'Error');

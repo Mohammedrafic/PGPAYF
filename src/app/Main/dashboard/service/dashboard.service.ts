@@ -11,4 +11,8 @@ export class DashboardService {
   GetUserDetails(UserId: number){
     return this.http.get<any>(`${environment.BaseUrl}GetUserDetails?UserId=${UserId}`);
   }
+
+  GetMinimumRent(HostelId: number){
+    return this.http.get<any>(`${environment.BaseUrl}GetMinimumRent?HostelID=${HostelId}`);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './service/dashboard.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   public NoOfHostels: number = 0;
   public rowData: any[] = [];
   public columnDefs: any = [
+    { field: 'userId', headerName: 'UserID', sortable: true, filter: true, hide: true  },
     { field: 'hostelId', headerName: 'HostelId', sortable: true, filter: true },
     { field: 'hostelName', headerName: 'HostelName', sortable: true, filter: true },
     { field: 'hostelAddress', headerName: 'HostelAddress', sortable: true, filter: true },
@@ -28,7 +30,7 @@ export class DashboardComponent implements OnInit {
     filter: true,
     resizable: true
   };
-  constructor(private dashService: DashboardService, private route: Router) {
+  constructor(private dashService: DashboardService, private route: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -53,5 +55,17 @@ export class DashboardComponent implements OnInit {
 
   Navigate(){
     this.route.navigate(['main','add-hostels']);
+  }
+
+  onRowClicked(event: any): void {
+    const HostelId = event.data.hostelId;
+    this.dashService.GetMinimumRent(HostelId).subscribe((res: any) => {
+      if(res.content){
+        this.MinAmt = res.content;
+      }
+      else{
+        this.toastr.error(res.message,'Error')
+      }
+    });
   }
 }

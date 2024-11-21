@@ -27,7 +27,7 @@
             </div>
             <div class="b-bottom">
                 <h5>Hostels Details</h5>
-                <a href="">
+                <a [routerLink]="['/main/hostels']">
                     <h5 class="txt-danger">Click here!</h5>
                 </a>
             </div>
@@ -59,7 +59,8 @@
                 style="width: 100%; height: 100%;"
                 class="ag-theme-alpine"
                 [rowData]="rowData"
-                [columnDefs]="columnDefs">
+                [columnDefs]="columnDefs"
+                (rowClicked)="onRowClicked($event)">
               </ag-grid-angular>
             </div>
         </div>
