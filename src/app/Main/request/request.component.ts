@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from './service/request.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -159,13 +160,15 @@ export class RequestComponent implements OnInit {
 
   gridOptions: any = {};
 
-  constructor(private reqService: RequestService) { }
+  constructor(private reqService: RequestService, private router: Router) { }
   ngOnInit(): void {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
 
     if (userId !== null) {
       const numericUserId = parseInt(userId, 10);
       this.GetHostelRequest(numericUserId);
+    }else{
+      this.router.navigate(['']);
     }
   }
 

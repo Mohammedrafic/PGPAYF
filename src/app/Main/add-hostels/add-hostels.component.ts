@@ -32,10 +32,12 @@ export class AddHostelsComponent implements OnInit {
       HostelPhotos: [[]] 
     });
 
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
   
     if (userId !== null) {
       this.UserID = parseInt(userId, 10);
+    }else{
+      this.router.navigate(['']);
     }
   }
 

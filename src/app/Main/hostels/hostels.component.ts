@@ -17,11 +17,13 @@ export class HostelsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
 
     if (userId !== null) {
       const numericUserId = parseInt(userId, 10);
       this.GetAllHostelDetails(numericUserId);
+    }else{
+      this.route.navigate(['']);
     }
   }
 

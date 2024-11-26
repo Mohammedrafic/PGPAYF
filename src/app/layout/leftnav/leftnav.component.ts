@@ -22,7 +22,10 @@ export class LeftnavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const userRole = localStorage.getItem('userRole');
+    const userRole = sessionStorage.getItem('userRole');
+    if(userRole == null){
+      this.route.navigate(['']);
+    }
     this.service.GetLayoutData(userRole).subscribe((res: any) => {
       if (res.isSuccess) {
         this.navbarItems = res.content;

@@ -15,7 +15,7 @@ export class HostelDetailsComponent implements OnInit {
   constructor(private service: HostelDetailsService,private route: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
-    this.UserRole = localStorage.getItem('userRole');
+    this.UserRole = sessionStorage.getItem('userRole');
     if(this.UserRole == null){
       this.router.navigate([''])
     }
