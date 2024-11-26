@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { env } from 'src/app/enum/enum';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,6 @@ export class ServiceService {
   constructor(private http: HttpClient) { }
 
   AddHostelDetails(HostelDetails: any) {
-    return this.http.post<any>(`${environment.BaseUrl}AddHostelDetails`, HostelDetails);
+    return this.http.post<any>(`${env.BaseUrl}AddHostelDetails`, HostelDetails);
   }
 }
