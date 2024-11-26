@@ -1,23 +1,82 @@
-.review {
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 20px 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.review-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.2);
+    }
   }
   
-  .review-text {
-    font-style: italic;
-    color: #333;
+  .review-content {
+    margin-bottom: 20px;
+  
+    .review-text {
+      font-size: 16px;
+      font-style: italic;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .reviewer {
+      font-size: 14px;
+      font-weight: bold;
+      color: #555;
+    }
   }
   
-  .reviewer {
-    font-weight: bold;
-    margin-top: 10px;
-    color: #666;
+  .rating-section {
+    margin-bottom: 20px;
+  
+    .rating-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .stars {
+      display: inline-flex;
+  
+      .star {
+        font-size: 24px;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.2s;
+  
+        &.selected {
+          color: #ff5722;
+        }
+  
+        &:hover {
+          color: #ff9800;
+        }
+      }
+    }
+  
+    .current-rating {
+      font-size: 14px;
+      color: #444;
+      margin-top: 5px;
+    }
   }
   
-  .rating {
-    color: #ff5722;
+  .price-section {
+    .amount,
+    .discount,
+    .offer {
+      font-size: 14px;
+      margin: 5px 0;
+  
+      .highlight {
+        font-weight: bold;
+        color: #ff5722;
+      }
+    }
   }
   

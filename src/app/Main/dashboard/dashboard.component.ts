@@ -60,14 +60,9 @@ export class DashboardComponent implements OnInit {
   }
 
   onRowClicked(event: any): void {
-    const HostelId = event.data.hostelId;
-    this.dashService.GetMinimumRent(HostelId).subscribe((res: any) => {
-      if(res.content){
-        this.MinAmt = res.content;
-      }
-      else{
-        this.toastr.error(res.message,'Error')
-      }
-    });
+    const selectedRow = this.rowData.find((x: any) => x.hostelId === event.data.hostelId);
+    if (selectedRow) {
+      this.MinAmt = selectedRow.minimunmRent;
+    }
   }
 }

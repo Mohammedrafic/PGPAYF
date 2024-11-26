@@ -1,6 +1,33 @@
-<div class="review">
-    <p class="review-text">"{{ review }}"</p>
-    <p class="reviewer">- {{ reviewer.name }}, {{ reviewer.country }}</p>
-    <p class="rating">Rating: {{ rating }} / 10</p>
+<div class="review-card">
+    <!-- Review Content -->
+    <div class="review-content">
+      <p class="review-text">"{{ review }}"</p>
+      <p class="reviewer">- {{ reviewer.name }}, {{ reviewer.country }}</p>
+    </div>
+  
+    <!-- Rating Section -->
+    <div class="rating-section">
+      <p class="rating-title">Rate this review:</p>
+      <div class="stars">
+        <span
+          class="star"
+          *ngFor="let star of stars; let i = index"
+          [class.selected]="i < (hoverRatingValue || selectedRating)"
+          (mouseenter)="hoverRating(i + 1)"
+          (mouseleave)="resetHover()"
+          (click)="selectRating(i + 1)"
+        >
+          ★
+        </span>
+      </div>
+      <p class="current-rating">Your Rating: {{ selectedRating }} / 5</p>
+    </div>
+  
+    <!-- Pricing Section -->
+    <div class="price-section">
+      <p class="amount">Amount: <span class="highlight">${{ amount }}</span></p>
+      <p class="discount">Discount: <span class="highlight">${{ discount }}</span></p>
+      <p class="offer">Offer: <span class="highlight">{{ offer }}</span></p>
+    </div>
   </div>
   
