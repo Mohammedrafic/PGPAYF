@@ -78,8 +78,8 @@
                                 </div>
                             </div>
                             <div class="footer-btm">
-                                <button class="view-dtl">View Details</button>
-                                <button class="bk">Book</button>
+                                <button class="view-dtl" (click)="Navigate(data.hostelDetails.hostelId)">Details</button>
+                                <button class="bk" (click)="BookNow(data.hostelDetails.hostelId)">Book</button>
                             </div>
                         </div>
                     </div>

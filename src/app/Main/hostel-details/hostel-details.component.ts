@@ -11,9 +11,14 @@ import { Location } from '@angular/common';
 export class HostelDetailsComponent implements OnInit {
   hotelDetails : any;
   ParamsId: number = 0;
+  UserRole: any;
   constructor(private service: HostelDetailsService,private route: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
+    this.UserRole = localStorage.getItem('userRole');
+    if(this.UserRole == null){
+      this.router.navigate([''])
+    }
     this.Getparamsid();
     this.service.GetHostelByID(this.ParamsId).subscribe((res: any) => {
       if(res.content){
@@ -36,7 +41,11 @@ export class HostelDetailsComponent implements OnInit {
   }
 
   Backbtn(): void {
-    this.router.navigate(['/main/hostels'])
+    if(this.UserRole == 'Admin'){
+      this.router.navigate(['/main/hostels'])
+    }else{
+      this.router.navigate(['/main/userdashboard'])
+    }
   }
 
   Getparamsid(){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDashbooardService } from './Service/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,7 +12,7 @@ export class UserDashboardComponent implements OnInit {
   imglist: any[] = [];
   HostelDetails: any[] = [];
 
-  constructor(private service: UserDashbooardService) {
+  constructor(private service: UserDashbooardService, private route: Router) {
   }
 
   ngOnInit(): void {
@@ -25,6 +26,14 @@ export class UserDashboardComponent implements OnInit {
         console.log(res.content);
       }
     });
+  }
+
+  Navigate(hostelId: number){
+    this.route.navigate(['main/HostelDetails', hostelId]);
+  }
+
+  BookNow(hostelId: number){
+    this.route.navigate(['main/HostelDetails', hostelId]);
   }
 
 }

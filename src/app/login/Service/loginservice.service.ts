@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from 'src/app/enum/enum';
+import { BackendName, env } from 'src/app/enum/enum';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,9 @@ import { env } from 'src/app/enum/enum';
 export class LoginserviceService {
 
   constructor(private http: HttpClient) { }
+  private backend: string = BackendName.Login;
 
   GetLoginDetails(Email: any, Password: any){
-    return this.http.get(`${env.BaseUrl}Login?Email=${Email}&Password=${Password}`);
+    return this.http.get(`${env.BaseUrl + this.backend}/Login?Email=${Email}&Password=${Password}`);
   }
 }

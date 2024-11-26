@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { env } from 'src/app/enum/enum';
+import { BackendName, env } from 'src/app/enum/enum';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,9 @@ import { env } from 'src/app/enum/enum';
 export class HostelDetailsService {
 
   constructor(private http: HttpClient) { }
+  private backend: string = BackendName.Hostel;
 
   GetHostelByID(HostelID: number){
-    return this.http.get<any>(`${env.BaseUrl}GetHostelFullDetailsById?HostelID=${HostelID}`);
+    return this.http.get<any>(`${env.BaseUrl + this.backend}/GetHostelFullDetailsById?HostelID=${HostelID}`);
   }
 }
