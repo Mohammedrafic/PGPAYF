@@ -8,17 +8,19 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ReviewSectionComponent implements OnInit {
   @Input() review: string = '';
   @Input() reviewer: any;
-  @Input() rating: number = 0;
-  @Input() amount: number = 0; // Product amount
-  @Input() discount: number = 0; // Discount amount
-  @Input() offer: string = ''; // Offer description
-  stars: number[] = Array(5).fill(0); // Array for 5 stars
-  selectedRating: number = this.rating;
+  @Input() rating: string = '';
+  @Input() amount: number = 0;
+  @Input() discount: number = 0;
+  @Input() offer: string = '';
+  stars: number[] = Array(5).fill(0);
+  selectedRating: number = 0;
   hoverRatingValue: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedRating = isNaN(Number(this.rating)) ? 0 : Math.round(Number(this.rating));
+    console.log(this.reviewer);
   }
 
   hoverRating(rating: number): void {
