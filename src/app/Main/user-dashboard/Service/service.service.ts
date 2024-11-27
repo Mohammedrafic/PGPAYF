@@ -12,7 +12,7 @@ export class UserDashbooardService {
   GetAllHostelDetails(){
     return this.http.get<any>(`${env.BaseUrl + this.backend}/GetAllHostelDetails`);
   }
-  GetHostelDetailsById(UserID: number){
-    return this.http.get<any>(`${env.BaseUrl + this.backend}/GetHostelDetailsById?UserID=${UserID}`);
+  GetHostelDetailsById(filter: any){
+    return this.http.post<any>(`${env.BaseUrl + this.backend}/GetHostelDetailsById`,filter);
   }
 }

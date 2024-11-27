@@ -10,6 +10,6 @@
     </div>
     <div class="action-buttons">
         <button (click)="Backbtn()">Back</button>
-        <button (click)="bookNow()">Book</button>
+        <button *ngIf="!isBookbtn" (click)="bookNow()">Book</button>
     </div>
 </div>

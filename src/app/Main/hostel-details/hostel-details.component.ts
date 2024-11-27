@@ -12,10 +12,12 @@ export class HostelDetailsComponent implements OnInit {
   hotelDetails : any;
   ParamsId: number = 0;
   UserRole: any;
+  isBookbtn: boolean = false;
   constructor(private service: HostelDetailsService,private route: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
     this.UserRole = sessionStorage.getItem('userRole');
+    this.isBookbtn = this.UserRole == 'Admin';
     if(this.UserRole == null){
       this.router.navigate([''])
     }

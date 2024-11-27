@@ -12,15 +12,17 @@ export class HostelsComponent implements OnInit {
   
   imglist: any[] = [];
   HostelDetails: any[] = [];
+  filter: any;
+  UserId: any;
 
   constructor(private service: UserDashbooardService, private route: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
-    const userId = sessionStorage.getItem('userId');
+    this.UserId = sessionStorage.getItem('userId');
 
-    if (userId !== null) {
-      const numericUserId = parseInt(userId, 10);
+    if (this.UserId !== null) {
+      const numericUserId = parseInt(this.UserId, 10);
       this.GetAllHostelDetails(numericUserId);
     }else{
       this.route.navigate(['']);
@@ -28,7 +30,15 @@ export class HostelsComponent implements OnInit {
   }
 
   GetAllHostelDetails(UserID: number) {
-    this.service.GetHostelDetailsById(UserID).subscribe((res: any) => {
+    debugger;
+    const filter = {
+      userId: UserID,
+      searchTerm: this.filter?.searchTerm ?? "",
+      sortOrder: this.filter?.sortOrder ?? "",
+      priceRange: this.filter?.priceRange ?? 0,
+      minRating: this.filter?.minRating ?? 0
+    }
+    this.service.GetHostelDetailsById(filter).subscribe((res: any) => {
       if (res.isSuccess) {
         this.HostelDetails = res.content;
         console.log(res.content);
@@ -42,5 +52,11 @@ export class HostelsComponent implements OnInit {
 
   Delete(hostelId: number){
     this.toastr.info('Currently Delete option is unavaliable','Not Action!!!')
+  }
+
+  Filter(filter: any){
+    console.log(filter);
+    this.filter = filter;
+    this.GetAllHostelDetails(this.UserId);
   }
 }

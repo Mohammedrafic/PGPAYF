@@ -11,7 +11,7 @@ import { SubSink } from 'subsink';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
-
+  isLogin: boolean = false;
   LoginForm = new FormGroup({
     Email: new FormControl(''),
     Password: new FormControl(''),
@@ -45,5 +45,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  LoginregChange(){
+    this.isLogin = !this.isLogin;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FiltersComponent implements OnInit {
 
   constructor() { }
-
+  @Output() Filters = new EventEmitter<any>();
   ngOnInit(): void {
   }
 
@@ -23,12 +23,13 @@ export class FiltersComponent implements OnInit {
   }
 
   applyFilters() {
-    console.log('Filters applied:', {
+    const filter = {
       searchTerm: this.searchTerm,
       sortOrder: this.sortOrder,
       priceRange: this.priceRange,
-      minRating: this.minRating
-    });
+      minRating: Number(this.minRating)
+    }
+    this.Filters.emit(filter);
     this.toggleFilters();
   }
 }
