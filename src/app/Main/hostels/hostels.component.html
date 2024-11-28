@@ -21,10 +21,10 @@
                         <div class="right-bar-header bar">
                             <div class="head-dtl">
                                 <span>
-                                    <h3>{{data.hostelDetails.hostelName}}</h3>
+                                    <h3>{{data.hDetails.hostelName}}</h3>
                                 </span>
                                 <span>
-                                    <h6>{{data.hostelDetails.hostalAddress}}</h6>
+                                    <h6>{{data.hDetails.hostalAddress}}</h6>
                                 </span>
                             </div>
                             <div>
@@ -65,24 +65,27 @@
                             <div class="footer-top">
                                 <div class="currency">
                                     <span>
-                                        <h3>&#8377;{{data.hostelDetails.rent}}</h3>
+                                        <h3>&#8377;{{data.hDetails.rent}}</h3>
                                     </span>
                                     <span class="offer-price">
-                                        <h3>&#8377;{{data.hostelDetails.minimumRent}}</h3>
+                                        <h3>&#8377;{{data.hDetails.minimumRent}}</h3>
                                     </span>
                                 </div>
                                 <div>
                                     <span class="offer">
-                                        <h5 class="off-per">{{data.discounts.offerper}}</h5>
+                                        <h5 class="off-per">{{data.discnt.offerper}}</h5>
                                     </span>
                                 </div>
                             </div>
                             <div class="footer-btm">
-                                <button class="bk" (click)="Delete(data.hostelDetails.hostelId)">Delete</button>
-                                <button class="view-dtl" (click)="Navigate(data.hostelDetails.hostelId)">Details</button>
+                                <button class="bk" (click)="Delete(data.hDetails.hostelId)">Delete</button>
+                                <button class="view-dtl" (click)="Navigate(data.hDetails.hostelId)">Details</button>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="norec" *ngIf="HostelDetails.length < 1">
+                    <h1>No records found!!</h1>
                 </div>
             </div>
         </div>

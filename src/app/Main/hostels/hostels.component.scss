@@ -227,6 +227,18 @@ ul.fecilities {
     margin-top: 50px;
 }
 
+.norec {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 1300px) {
   .main-body {
     flex-direction: column;

@@ -30,7 +30,6 @@ export class HostelsComponent implements OnInit {
   }
 
   GetAllHostelDetails(UserID: number) {
-    debugger;
     const filter = {
       userId: UserID,
       searchTerm: this.filter?.searchTerm ?? "",
@@ -38,6 +37,7 @@ export class HostelsComponent implements OnInit {
       priceRange: this.filter?.priceRange ?? 0,
       minRating: this.filter?.minRating ?? 0
     }
+    this.HostelDetails = [];
     this.service.GetHostelDetailsById(filter).subscribe((res: any) => {
       if (res.isSuccess) {
         this.HostelDetails = res.content;
