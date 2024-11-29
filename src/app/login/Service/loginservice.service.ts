@@ -13,4 +13,8 @@ export class LoginserviceService {
   GetLoginDetails(Email: any, Password: any){
     return this.http.get(`${env.BaseUrl + this.backend}/Login?Email=${Email}&Password=${Password}`);
   }
+
+  ForgotPassword(Email: any){
+    return this.http.get(`${env.BaseUrl + this.backend}/ForgotPassword?Email=${Email}`);
+  }
 }

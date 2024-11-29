@@ -28,6 +28,7 @@ import { FeedbackComponent } from './Main/feedback/feedback.component';
 import { HostelModule } from './Main/hostel-details/hostel-details.module';
 import { CommonModule } from '@angular/common';
 import { spinnerModule } from './loader/spinner.module';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { spinnerModule } from './loader/spinner.module';
     LeftnavComponent,
     AddHostelsComponent,
     ContactComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

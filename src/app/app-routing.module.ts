@@ -12,10 +12,12 @@ import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
 import { ContactComponent } from './Main/contact/contact.component';
 import { FeedbackComponent } from './Main/feedback/feedback.component';
 import { HostelDetailsComponent } from './Main/hostel-details/hostel-details.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'main',
     component: LayoutComponent,
