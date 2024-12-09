@@ -1,0 +1,44 @@
+.form {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.form-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inpt{
+    width: 80%;
+}
+
+.terms {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+p.ptag {
+    font-size: 12px;
+}
+
+.txt-area {
+    height: 90px;
+}

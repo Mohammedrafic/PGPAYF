@@ -1,0 +1,85 @@
+<div class="payment-details-container">
+    <h3>Step 3: Payment details</h3>
+    <p class="secure-info">
+        <i class="fas fa-lock"></i> Your booking is safe and secure
+    </p>
+
+    <p class="note">
+        <i class="fas fa-check-circle"></i> <b>We never charge any card fees</b>
+    </p>
+
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <p class="required-text">* required fields</p>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First name*</label>
+                <input type="text" id="firstName" formControlName="firstName" class="form-control"
+                    placeholder="Enter first name" />
+                <div *ngIf="paymentForm.get('firstName')?.invalid && paymentForm.get('firstName')?.touched"
+                    class="error">
+                    First name is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last name*</label>
+                <input type="text" id="lastName" formControlName="lastName" class="form-control"
+                    placeholder="Enter last name" />
+                <div *ngIf="paymentForm.get('lastName')?.invalid && paymentForm.get('lastName')?.touched" class="error">
+                    Last name is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cardNumber">Card number*</label>
+            <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control"
+                placeholder="0000 0000 0000 0000" />
+            <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched" class="error">
+                Valid card number is required.
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="expiryDate">Expiry date*</label>
+                <input type="text" id="expiryDate" formControlName="expiryDate" class="form-control"
+                    placeholder="MM / YY" />
+                <div *ngIf="paymentForm.get('expiryDate')?.invalid && paymentForm.get('expiryDate')?.touched"
+                    class="error">
+                    Expiry date is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="securityCode">Security code*</label>
+                <input type="password" id="securityCode" formControlName="securityCode" class="form-control"
+                    placeholder="000" />
+                <div *ngIf="paymentForm.get('securityCode')?.invalid && paymentForm.get('securityCode')?.touched"
+                    class="error">
+                    Security code is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="accepted-methods">
+            <p>We accept the following payment methods</p>
+            <img src="assets/amex.png" alt="American Express" />
+            <img src="assets/mastercard.png" alt="Mastercard" />
+            <img src="assets/visa.png" alt="Visa" />
+        </div>
+
+        <div class="security-info">
+            <p>You can count on us</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> We use secure transmission</li>
+                <li><i class="fas fa-check-circle"></i> We protect your personal information</li>
+            </ul>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="paymentForm.invalid">
+            Confirm Payment
+        </button>
+    </form>
+</div>

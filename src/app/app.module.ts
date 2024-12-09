@@ -29,6 +29,11 @@ import { HostelModule } from './Main/hostel-details/hostel-details.module';
 import { CommonModule } from '@angular/common';
 import { spinnerModule } from './loader/spinner.module';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { SinglerDemoComponent } from './singler-demo/singler-demo.component';
+import { UserdtlComponent } from './Main/BookRequest/userdtl/userdtl.component';
+import { BookRequestComponent } from './Main/BookRequest/book-request.component';
+import { PropertydtlComponent } from './Main/BookRequest/propertydtl/propertydtl.component';
+import { PaymentdtlComponent } from './Main/BookRequest/paymentdtl/paymentdtl.component';
 
 
 @NgModule({
@@ -52,7 +57,12 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
     AddHostelsComponent,
     ContactComponent,
     FeedbackComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    SinglerDemoComponent,
+    BookRequestComponent,
+    UserdtlComponent,
+    PropertydtlComponent,
+    PaymentdtlComponent
   ],
   imports: [
     BrowserModule,

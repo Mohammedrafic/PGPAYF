@@ -1,0 +1,126 @@
+.payment-details-container {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    .secure-info {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  
+    .note {
+      font-size: 14px;
+      color: #4caf50;
+      margin-bottom: 20px;
+  
+      i {
+        color: #4caf50;
+      }
+    }
+  
+    .required-text {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+  
+    .form-row {
+      display: flex;
+      gap: 20px;
+  
+      .form-group {
+        flex: 1;
+      }
+    }
+  
+    .form-group {
+      margin-bottom: 20px;
+  
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+  
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+  
+      .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+    }
+  
+    .accepted-methods {
+      margin: 20px 0;
+      text-align: center;
+  
+      p {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+  
+      img {
+        margin: 0 10px;
+        height: 40px;
+      }
+    }
+  
+    .security-info {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+  
+      p {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+  
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+  
+          i {
+            color: #4caf50;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+  
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+  

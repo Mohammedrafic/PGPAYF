@@ -13,6 +13,8 @@ import { ContactComponent } from './Main/contact/contact.component';
 import { FeedbackComponent } from './Main/feedback/feedback.component';
 import { HostelDetailsComponent } from './Main/hostel-details/hostel-details.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { SinglerDemoComponent } from './singler-demo/singler-demo.component';
+import { BookRequestComponent } from './Main/BookRequest/book-request.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -54,6 +56,14 @@ const routes: Routes = [
         path: 'HostelDetails/:id',
         component: HostelDetailsComponent,
         loadChildren: () => import('./Main/hostel-details/hostel-details.module').then(m => m.HostelModule)
+      },
+      {
+        path: 'singler',
+        component: SinglerDemoComponent
+      },
+      {
+        path: 'Booking',
+        component: BookRequestComponent
       }
     ],
   },
