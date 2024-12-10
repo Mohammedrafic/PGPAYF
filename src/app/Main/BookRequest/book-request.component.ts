@@ -26,6 +26,7 @@ export class BookRequestComponent implements OnInit {
   Offer: any;
   Amount: any;
   DiscountAmount: any;
+  Isbtnclick: boolean = false;
   constructor(private service: BookRequestService) { }
 
   ngOnInit(): void {
@@ -43,4 +44,8 @@ export class BookRequestComponent implements OnInit {
     });
   }
 
+  btnsubmit(event: any){
+    debugger;
+    this.Isbtnclick = true;
+  }
 }

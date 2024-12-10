@@ -8,8 +8,13 @@ import { BackendName, env } from 'src/app/enum/enum';
 export class BookRequestService {
   constructor(private http: HttpClient) { }
   private backend: string = BackendName.Hostel;
+  private Userbackend: string = BackendName.User;
 
   GetHostelByID(HostelID: number){
     return this.http.get<any>(`${env.BaseUrl + this.backend}/GetHostelFullDetailsById?HostelID=${HostelID}`);
+  }
+
+  GetUserDetailsByID(UserId: number, HostelID: number){
+    return this.http.get<any>(`${env.BaseUrl + this.Userbackend}/GetUserDetailsById?UserId=${UserId}&hostelId=${HostelID}`);
   }
 }

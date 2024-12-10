@@ -9,22 +9,23 @@ import { Location } from '@angular/common';
   styleUrls: ['./hostel-details.component.scss']
 })
 export class HostelDetailsComponent implements OnInit {
-  hotelDetails : any;
+  hotelDetails: any;
   ParamsId: number = 0;
   UserRole: any;
   isBookbtn: boolean = false;
-  constructor(private service: HostelDetailsService,private route: ActivatedRoute, private location: Location, private router: Router) { }
+  constructor(private service: HostelDetailsService, private route: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
     this.UserRole = sessionStorage.getItem('userRole');
     this.isBookbtn = this.UserRole == 'Admin';
-    if(this.UserRole == null){
+    if (this.UserRole == null) {
       this.router.navigate([''])
     }
     this.Getparamsid();
     this.service.GetHostelByID(this.ParamsId).subscribe((res: any) => {
-      if(res.content){
+      if (res.content) {
         this.hotelDetails = res.content;
+        sessionStorage.setItem('HostelName',res.content.name)
         console.log(this.hotelDetails);
       }
     });
@@ -39,18 +40,18 @@ export class HostelDetailsComponent implements OnInit {
   ];
 
   bookNow(): void {
-    this.router.navigate(['/main/Booking'])
+    this.router.navigate(['/main/Booking', this.ParamsId])
   }
 
   Backbtn(): void {
-    if(this.UserRole == 'Admin'){
+    if (this.UserRole == 'Admin') {
       this.router.navigate(['/main/hostels'])
-    }else{
+    } else {
       this.router.navigate(['/main/userdashboard'])
     }
   }
 
-  Getparamsid(){
+  Getparamsid() {
     this.route.params.subscribe((params) => {
       this.ParamsId = params['id'];
     });

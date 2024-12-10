@@ -16,7 +16,7 @@
             <div class="">
                 <app-hostelcard [details]="dtl" [HostelName]="HostelName" [ReviewCount]="ReviewCount" [Rating]="Rating"
                     [HostelAddress]="HostelAddress" [ReviewText]="ReviewText" [Offer]="Offer"
-                    [Amount]="Amount" [DiscountAmount]="DiscountAmount"></app-hostelcard>
+                    [Amount]="Amount" [DiscountAmount]="DiscountAmount" (btnsubmitval)="btnsubmit($event)"></app-hostelcard>
             </div>
         </div>
     </div>

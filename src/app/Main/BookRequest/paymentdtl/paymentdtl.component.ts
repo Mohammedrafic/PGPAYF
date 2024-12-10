@@ -33,7 +33,6 @@ export class PaymentdtlComponent implements OnInit {
   }
 
   onPaymentMethodChange(method: any): void {
-    debugger;
     this.selectedPaymentMethod = method.target != undefined ? method.target.value : method;
 
     if (this.selectedPaymentMethod === 'upi') {

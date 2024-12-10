@@ -62,7 +62,7 @@ const routes: Routes = [
         component: SinglerDemoComponent
       },
       {
-        path: 'Booking',
+        path: 'Booking/:id',
         component: BookRequestComponent
       }
     ],

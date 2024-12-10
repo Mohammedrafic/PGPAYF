@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -18,10 +18,15 @@ export class HostelcardComponent implements OnInit {
   JoiningDate: any;
   @Input() Amount: any;
   @Input() DiscountAmount: any;
+  @Output() btnsubmitval = new EventEmitter<any>();
   constructor(private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.JoiningDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+  }
+
+  btnsubmit(){
+    this.btnsubmitval.emit();
   }
 
 }
