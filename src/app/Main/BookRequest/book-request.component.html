@@ -1,20 +1,22 @@
 <div class="cont">
-    <h3>Rudhra Hostel</h3>
+    <h2 class="header">{{HostelName}}</h2>
     <div class="dtl-main">
         <div class="left-dtl">
-            <div class="b-line user-dtl">
+            <div class="user-dtl">
                 <app-userdtl></app-userdtl>
             </div>
-            <div class="b-line property-dtl">
-                <app-propertydtl></app-propertydtl>
+            <div class="property-dtl">
+                <app-propertydtl [propertyList]="propertylist"></app-propertydtl>
             </div>
-            <div class="b-line payment-dtl">
+            <div class="payment-dtl">
                 <app-paymentdtl></app-paymentdtl>
             </div>
         </div>
         <div class="right-dtl">
-            <div class="b-line">
-                <app-paymentdtl></app-paymentdtl>
+            <div class="">
+                <app-hostelcard [details]="dtl" [HostelName]="HostelName" [ReviewCount]="ReviewCount" [Rating]="Rating"
+                    [HostelAddress]="HostelAddress" [ReviewText]="ReviewText" [Offer]="Offer"
+                    [Amount]="Amount" [DiscountAmount]="DiscountAmount"></app-hostelcard>
             </div>
         </div>
     </div>

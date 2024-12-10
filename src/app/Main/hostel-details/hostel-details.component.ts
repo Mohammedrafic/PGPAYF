@@ -39,7 +39,7 @@ export class HostelDetailsComponent implements OnInit {
   ];
 
   bookNow(): void {
-    console.log('Booking triggered for:', this.hotelDetails.name);
+    this.router.navigate(['/main/Booking'])
   }
 
   Backbtn(): void {

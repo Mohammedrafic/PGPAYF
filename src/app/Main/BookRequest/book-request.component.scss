@@ -1,33 +1,52 @@
 .cont {
-    margin: 12px;
+  margin: 12px;
+}
+.header {
+    margin-left: 20px;
 }
 
 .dtl-main {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
 }
 
 .left-dtl {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-    height: 100%;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  gap: 10px;
 }
 
 .right-dtl {
-    display: flex;
-    width: 40%;
-    flex-direction: column;
-    height: 100%;
-    gap: 10px;
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
 }
 
 .b-line {
-    border: 1px solid #caccd2;
-    padding: 15px;
-    border-radius: 5px;
+  border: 1px solid #caccd2;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .dtl-main {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .left-dtl,.right-dtl{
+    width: 100%;
+  }
 }

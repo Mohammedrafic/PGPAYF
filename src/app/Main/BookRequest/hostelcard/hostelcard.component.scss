@@ -1,0 +1,28 @@
+.hotel-card {
+  margin: 0 auto;
+  .carousel-inner img {
+    height: 200px;
+    object-fit: cover;
+  }
+  .rating .badge {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+  .cta {
+    font-size: 14px;
+    .text-primary {
+      font-size: 16px;
+    }
+  }
+}
+
+.tamount {
+  font-size: 30px;
+}
+.amt {
+    font-size: 25px;
+}
+.amt-ul {
+    margin-left: 10px;
+    text-decoration: line-through;
+}

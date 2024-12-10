@@ -26,7 +26,7 @@ import { AddHostelsComponent } from './Main/add-hostels/add-hostels.component';
 import { ContactComponent } from './Main/contact/contact.component';
 import { FeedbackComponent } from './Main/feedback/feedback.component';
 import { HostelModule } from './Main/hostel-details/hostel-details.module';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { spinnerModule } from './loader/spinner.module';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { SinglerDemoComponent } from './singler-demo/singler-demo.component';
@@ -34,6 +34,7 @@ import { UserdtlComponent } from './Main/BookRequest/userdtl/userdtl.component';
 import { BookRequestComponent } from './Main/BookRequest/book-request.component';
 import { PropertydtlComponent } from './Main/BookRequest/propertydtl/propertydtl.component';
 import { PaymentdtlComponent } from './Main/BookRequest/paymentdtl/paymentdtl.component';
+import { HostelcardComponent } from './Main/BookRequest/hostelcard/hostelcard.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { PaymentdtlComponent } from './Main/BookRequest/paymentdtl/paymentdtl.co
     BookRequestComponent,
     UserdtlComponent,
     PropertydtlComponent,
-    PaymentdtlComponent
+    PaymentdtlComponent,
+    HostelcardComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +85,7 @@ import { PaymentdtlComponent } from './Main/BookRequest/paymentdtl/paymentdtl.co
     CommonModule,
     spinnerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })

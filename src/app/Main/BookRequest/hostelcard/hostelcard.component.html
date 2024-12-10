@@ -1,0 +1,54 @@
+<div class="hotel-card border rounded shadow-sm p-3">
+    <div id="hotelCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div *ngFor="let image of details.images; let i = index"
+                [class]="i === 0 ? 'carousel-item active' : 'carousel-item'">
+                <img [src]="image" class="d-block w-100 rounded" alt="Hotel Image" />
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+    <div class="hotel-details mt-3">
+        <h5 class="fw-bold">{{HostelName}}</h5>
+        <p class="text-muted small mb-2">
+            {{HostelAddress}}
+        </p>
+        <div class="rating d-flex align-items-center mb-3">
+            <span class="badge bg-success me-2 text-white fw-bold fs-6">{{Rating}}</span>
+            <span class="fw-semibold">{{HostelStatus}}</span>
+            <span class="text-muted ms-2 small">({{ReviewCount}} reviews)</span>
+        </div>
+
+        <div class="check-in-out border-top pt-2 mt-2">
+            <p class="mb-1"><strong>Offer:</strong>  {{Offer}}</p>
+            <p class="mb-1"><strong>Joining Date:</strong> {{JoiningDate}}</p>
+            <p class="fw-bold amt"><strong>Amount:</strong> <span class="amt-ul">{{Amount}}₹</span></p>
+        </div>
+
+        <div class="cta mt-3">
+            <p class="text-success fw-bold mb-1">
+                {{ReviewText}}
+            </p>
+            <p class="mb-1">
+                <strong>Courtyard Room Twin Bed with Attached Bathroom</strong>
+            </p>
+            <p class="fw-bold tamount">
+                Total rate: ₹{{DiscountAmount}}
+            </p>
+        </div>
+    </div>
+    <div class="btn">
+        <button type="submit" class="btn btn-primary">
+            Book
+        </button>
+    </div>
+</div>

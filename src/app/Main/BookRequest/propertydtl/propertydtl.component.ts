@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-propertydtl',
@@ -8,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class PropertydtlComponent implements OnInit {
 
   constructor() { }
-  propertyList: any[] = ['hgfdsjh','fdgdfg','dsfsdfs','dfsdfsd']
+  @Input() propertyList: any[] = []
 
   ngOnInit(): void {
+    console.log(this.propertyList)
   }
 
 }
