@@ -10,11 +10,15 @@ export class BookRequestService {
   private backend: string = BackendName.Hostel;
   private Userbackend: string = BackendName.User;
 
-  GetHostelByID(HostelID: number){
+  GetHostelByID(HostelID: number) {
     return this.http.get<any>(`${env.BaseUrl + this.backend}/GetHostelFullDetailsById?HostelID=${HostelID}`);
   }
 
-  GetUserDetailsByID(UserId: number, HostelID: number){
+  GetUserDetailsByID(UserId: number, HostelID: number) {
     return this.http.get<any>(`${env.BaseUrl + this.Userbackend}/GetUserDetailsById?UserId=${UserId}&hostelId=${HostelID}`);
+  }
+
+  BookingRequest(Details: any) {
+    return this.http.post<any>(`${env.BaseUrl + this.backend}/HostelBookingRequest`, Details);
   }
 }

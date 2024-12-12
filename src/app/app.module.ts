@@ -35,7 +35,7 @@ import { BookRequestComponent } from './Main/BookRequest/book-request.component'
 import { PropertydtlComponent } from './Main/BookRequest/propertydtl/propertydtl.component';
 import { PaymentdtlComponent } from './Main/BookRequest/paymentdtl/paymentdtl.component';
 import { HostelcardComponent } from './Main/BookRequest/hostelcard/hostelcard.component';
-
+import { TopnavComponent } from './layout/topnav/topnav.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,8 @@ import { HostelcardComponent } from './Main/BookRequest/hostelcard/hostelcard.co
     UserdtlComponent,
     PropertydtlComponent,
     PaymentdtlComponent,
-    HostelcardComponent
+    HostelcardComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,

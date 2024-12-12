@@ -1,42 +1,46 @@
 <div class="border rounded shadow-sm p-3">
     <h4>Step1 : Your Details</h4>
     <hr>
-    <p class="ptag">Please tell us the name of the guest staying at the property as it appears on the ID that they’ll
-        present at check-in. If the guest has more than one last name, please enter them all.</p>
+    <p class="ptag">
+        Please tell us the name of the guest staying at the property as it appears on the ID that they’ll present at
+        check-in.
+        If the guest has more than one last name, please enter them all.
+    </p>
     <p class="ptag"><span style="color: red;">*</span>required fields</p>
-    <form [formGroup]="userDetailForm" class="form" action="">
+    <form [formGroup]="userDetailForm" class="form">
         <div class="form-left">
             <div class="fields">
                 <input type="text" id="username" name="username" class="form-control" formControlName="username"
-                    placeholder="UserName">
-                <div *ngIf="userDetailForm.get('username')?.invalid && userDetailForm.get('username')?.touched" class="error">
-                    Valid card number is required.
+                    placeholder="UserName" />
+                <div *ngIf="userDetailForm.get('username')?.invalid && userDetailForm.get('username')?.touched"
+                    class="error">
+                    Username is required.
                 </div>
             </div>
             <div class="fields">
                 <input type="text" id="hostelName" name="hostelName" class="form-control" formControlName="hostelName"
-                    placeholder="HostelName">
+                    placeholder="HostelName" />
                 <div *ngIf="userDetailForm.get('hostelName')?.invalid && userDetailForm.get('hostelName')?.touched"
                     class="error">
-                    Valid card number is required.
+                    Hostel Name is required.
                 </div>
             </div>
             <div class="fields">
                 <input type="text" id="requestType" name="requestType" class="form-control"
-                    formControlName="requestType" placeholder="RequestType" [attr.disabled]="true">
+                    formControlName="requestType" placeholder="RequestType" [attr.disabled]="true" />
             </div>
         </div>
         <div class="form-right">
             <div class="fields">
                 <input type="text" id="status" name="status" class="form-control" formControlName="status"
-                    placeholder="Status" [attr.disabled]="true">
+                    placeholder="Status" [attr.disabled]="true" />
             </div>
             <div class="fields">
                 <input type="text" id="contactDetails" name="contactDetails" formControlName="contactDetails"
-                    class="form-control" placeholder="ContactDetails">
+                    class="form-control" placeholder="ContactDetails" />
                 <div *ngIf="userDetailForm.get('contactDetails')?.invalid && userDetailForm.get('contactDetails')?.touched"
                     class="error">
-                    Valid card number is required.
+                    Contact Details are required.
                 </div>
             </div>
             <div class="fields">
@@ -46,7 +50,7 @@
         </div>
     </form>
     <div class="terms">
-        <input type="checkbox" name="" id="">
-        <p class="ptag"><span style="color: red;">*</span>Agree terms and condition</p>
+        <input type="checkbox" name="terms" id="terms" />
+        <p class="ptag"><span style="color: red;">*</span>Agree to terms and conditions</p>
     </div>
 </div>

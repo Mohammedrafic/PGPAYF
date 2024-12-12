@@ -1,4 +1,4 @@
-export interface UserDetails{
+export interface UserDetails {
     UserName: string;
     Email: string;
     Password: string;
@@ -27,4 +27,35 @@ export interface UserDetails{
         OwnerName?: string;
         HostalPhotosPath?: string;
     };
+}
+
+export interface Payment {
+    hostelId: number;
+    userId: number;
+    paymentDate: string;
+    amount: number;
+    paymentMethod: string;
+    transactionId: string;
+    paymentStatus: string;
+    isAdvancePayment: boolean;
+    advanceAmount: number;
+    remainingBalance: number;
+    remarks: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface HostelRequest {
+    requestType: string;
+    hostelId: number;
+    userId: number;
+    requestDate: string;
+    status: string;
+    description: string;
+    assignedTo: string;
+    response: string;
+    contactDetails: string;
+    isResolved: boolean;
+    lastUpdated: string;
+    payment: Payment;
 }

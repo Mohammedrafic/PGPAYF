@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from './service/request.service';
 import { Router } from '@angular/router';
+import { SignalRService } from 'src/app/Common/signalR/signal-r.service';
 
 
 @Component({
@@ -157,16 +158,17 @@ export class RequestComponent implements OnInit {
 
   DetailsrowData: any = [];
   PaymentrowData: any = [];
-
+  hostelIds: any = [];
   gridOptions: any = {};
 
-  constructor(private reqService: RequestService, private router: Router) { }
+  constructor(private reqService: RequestService, private router: Router, private signalR: SignalRService) { }
   ngOnInit(): void {
     const userId = sessionStorage.getItem('userId');
 
     if (userId !== null) {
       const numericUserId = parseInt(userId, 10);
       this.GetHostelRequest(numericUserId);
+      this.SignalRConnection();
     }else{
       this.router.navigate(['']);
     }
@@ -174,14 +176,43 @@ export class RequestComponent implements OnInit {
 
   GetHostelRequest(UserID: number) {
     this.reqService.GetHostelRequest(UserID).subscribe((res: any) => {
-      this.DetailsrowData = res.content.details;
-      this.PaymentrowData = res.content.payment;
+      if(res.content){
+        debugger;
+        this.hostelIds = res.content.hostelids;
+        if(res.content.details && res.content.payment){
+          this.DetailsrowData = res.content.details;
+          this.PaymentrowData = res.content.payment;
+        }
+      }
     });
   }
 
   onTopClick(index: number) {
     this.selectedTopIndex = index;
-    this.label = index == 0 ? this.topToggle[index] : this.topToggle[index]
+    this.label = index == 0 ? this.topToggle[index] : this.topToggle[index];
   }
+
+  SignalRConnection() {
+    this.signalR.response$.subscribe((res: any) => {
+      if (res) {
+        const filterByHostelIds = (data: any[]) => data?.filter(item => this.hostelIds.includes(item.hostelId));
+        if (res.details) {
+          const filteredDetails = filterByHostelIds(res.details);
+          if (filteredDetails && filteredDetails.length) {
+            this.DetailsrowData = filteredDetails;
+          }
+        }
+        if (res.payment) {
+          const filteredPayments = filterByHostelIds(res.payment);
+          if (filteredPayments && filteredPayments.length) {
+            this.PaymentrowData = filteredPayments;
+          }
+        }
+      }
+    });
+    this.signalR.SignalRConnection('request', 'SendRequestToUser');
+  }
+  
+  
 
 }

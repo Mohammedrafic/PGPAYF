@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PaymentdtlComponent implements OnInit {
 
   paymentForm!: FormGroup;
-  selectedPaymentMethod: string = 'upi'; // Default payment method
+  selectedPaymentMethod: string = 'upi';
+  isPaumentSuccessfull: boolean = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -28,13 +29,14 @@ export class PaymentdtlComponent implements OnInit {
       ],
       upiId: ['', [Validators.required, Validators.pattern(/^[\w.-]+@[\w.-]+$/)]],
       qrCode: [''],
+      paymentMethod: [this.selectedPaymentMethod]
     });
     this.onPaymentMethodChange(this.selectedPaymentMethod);
   }
 
   onPaymentMethodChange(method: any): void {
     this.selectedPaymentMethod = method.target != undefined ? method.target.value : method;
-
+    this.paymentForm.get('paymentMethod')?.setValue(this.selectedPaymentMethod);
     if (this.selectedPaymentMethod === 'upi') {
       this.paymentForm.get('upiId')?.setValidators([Validators.required, Validators.pattern(/^[\w.-]+@[\w.-]+$/)]);
       this.paymentForm.get('qrCode')?.clearValidators();
@@ -64,11 +66,12 @@ export class PaymentdtlComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  onSubmit() {
     if (this.paymentForm.valid) {
-      console.log('Payment Submitted:', this.paymentForm.value);
+      this.isPaumentSuccessfull = true;
       alert('Payment Submitted Successfully!');
     } else {
+      this.isPaumentSuccessfull = false;
       alert('Please fill all required fields correctly.');
     }
   }

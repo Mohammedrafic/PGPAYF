@@ -20,11 +20,6 @@ import { PhotoModalComponent } from "./image-gallery/photo-modal/photo-modal.com
     PhotoModalComponent
   ],
   imports: [
-    // ReactiveFormsModule,
-    // HttpClientModule,
-    // HostelRoutingModule,
-    // AgGridModule,
-    // FormsModule,
     CommonModule,
     spinnerModule
   ],

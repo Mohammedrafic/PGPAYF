@@ -12,10 +12,6 @@ export class UserdtlComponent implements OnInit {
   userDetailForm!: FormGroup;
   HostelId: any;
   UserId: any;
-  @Input() btnClick = (res: any) =>{
-    debugger;
-    console.log(res);
-  }
   constructor(private fb: FormBuilder, private service: BookRequestService, private route: ActivatedRoute,) {
     this.Getparamsid();
   }
@@ -51,4 +47,19 @@ export class UserdtlComponent implements OnInit {
     });
   }
 
+  ValidateForm() {
+    let isValid = true;
+    Object.keys(this.userDetailForm.controls).forEach(key => {
+      const control = this.userDetailForm.get(key);
+      if(control != null && control !== undefined){
+        if (control && control.invalid) {
+          control.setValidators(Validators.required);
+          control.updateValueAndValidity();
+          isValid = false;
+        }
+        control.markAsTouched();
+      }
+    });
+    return isValid;
+  }
 }
